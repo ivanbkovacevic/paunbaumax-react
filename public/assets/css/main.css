@@ -1,0 +1,25 @@
+.pera {
+  color: #9c9797;
+  background-color: yellow;
+  font-size: 30px; }
+
+.slika {
+  width: 40%;
+  padding: 30px; }
+
+body {
+  background-color: #ececf0; }
+
+.line {
+  background-color: aliceblue; }
+
+.footer-row {
+  background-color: #e48c52; }
+
+.container-opisproizvoda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .container-opisproizvoda .paragraf-opisproizvoda {
+    flex-grow: 1; }
