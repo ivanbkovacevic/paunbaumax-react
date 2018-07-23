@@ -13,8 +13,14 @@ body {
 .line {
   background-color: aliceblue; }
 
-.footer-row {
-  background-color: #e48c52; }
+.footer {
+  background-color: #7a5f4d;
+  color: white;
+  padding: 50px; }
+
+.satnica {
+  margin-top: 50px;
+  color: red; }
 
 .container-opisproizvoda {
   display: flex;
@@ -23,3 +29,73 @@ body {
   justify-content: center; }
   .container-opisproizvoda .paragraf-opisproizvoda {
     flex-grow: 1; }
+
+.onama .header {
+  font-size: 18px;
+  background: linear-gradient(to right, rgba(36, 35, 35, 0.5), rgba(36, 35, 35, 0.5)), url("./namestaj1.jpg") no-repeat center;
+  background-size: cover;
+  color: white;
+  padding: 70px;
+  height: 50vh; }
+  .onama .header h3 {
+    margin-bottom: 10px; }
+  .onama .header img {
+    margin-top: 30px; }
+  .onama .header .linija {
+    border-bottom: 1px solid blue;
+    width: 100px;
+    margin-bottom: 20px; }
+
+.onama .ikonice {
+  padding: 50px 10px; }
+  .onama .ikonice .ik1 {
+    display: flex;
+    border-right: 1px solid blue; }
+    .onama .ikonice .ik1 h3 {
+      align-self: start; }
+  .onama .ikonice .ik2 {
+    border-right: 1px solid blue;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid blue; }
+    .onama .ikonice .ik2 i {
+      justify-self: start; }
+    .onama .ikonice .ik2 h3 {
+      align-self: start;
+      justify-self: center; }
+    .onama .ikonice .ik2 p {
+      align-self: flex-end; }
+  .onama .ikonice .ik3 {
+    display: flex;
+    align-items: flex-start;
+    border-right: 1px solid blue; }
+
+.onama .galerija {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #7e7979; }
+  .onama .galerija .gal1 {
+    margin: 10px;
+    border: 2px solid white; }
+  .onama .galerija .gal7 {
+    margin: 10px;
+    border: 2px solid yellow;
+    align-self: flex-end;
+    justify-self: flex-start; }
+  .onama .galerija img {
+    margin: 10px;
+    animation: galerija 1.7s; }
+  .onama .galerija img:hover {
+    transform: scale(1.3); }
+
+.onama .borred {
+  border: 30px solid red; }
+
+@keyframes galerija {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
