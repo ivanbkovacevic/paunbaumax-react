@@ -1,9 +1,12 @@
 @import 'variables';
 @import 'components';
 @import 'slika';
-@import '../src/components/Navigation/navigation';
+@import 'navigation';
 @import '../src/components/Footer/footer';
 @import '../src/components/OpisProizvoda/opisproizvoda';
 @import '../src/components/Onama/onama';
+@import 'stripe';
+@import 'onama_home';
+@import 'reference';
 
 

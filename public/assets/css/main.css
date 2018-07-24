@@ -10,17 +10,20 @@
 body {
   background-color: #ececf0; }
 
-.line {
-  background-color: aliceblue; }
+a {
+  color: #323232; }
+
+.navbar__brand {
+  position: relative; }
+  .navbar__brand__image {
+    position: absolute;
+    margin-left: 10px; }
 
 .footer {
-  background-color: #7a5f4d;
+  background-color: #5d5757;
   color: white;
-  padding: 50px; }
-
-.satnica {
-  margin-top: 50px;
-  color: red; }
+  padding: 50px;
+  margin-top: 20px; }
 
 .container-opisproizvoda {
   display: flex;
@@ -99,3 +102,112 @@ body {
     transform: scale(0); }
   100% {
     transform: scale(1); } }
+
+.stripe {
+  background-image: url("../public/assets/img/slusalica.png") no-repeat -433px -51px;
+  width: 33px;
+  height: 33px; }
+
+.contact-info {
+  background-color: rgba(248, 246, 246, 0.658);
+  font-weight: 300;
+  color: #323232;
+  height: 40px;
+  position: relative;
+  border-bottom: 1px solid #323232; }
+
+.contact-info-phone {
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 10px; }
+
+.contact-info-email {
+  position: absolute;
+  margin-left: 250px;
+  margin-top: 10px;
+  color: #323232; }
+
+a:link {
+  text-decoration: none;
+  color: #323232; }
+
+.button-detaljnije {
+  background-color: #edeae7;
+  border: 1px solid #005ba8;
+  border-radius: 0%;
+  transition: all 0.5s;
+  width: 200;
+  height: 50px;
+  padding: 10px 62px;
+  margin-top: 30px; }
+
+.button-detaljnije:hover {
+  background-color: #005ba8;
+  color: white; }
+
+.row-onama {
+  padding: 115px; }
+
+.reference {
+  width: 700px;
+  height: 1700px;
+  background: url("../../assets/img/ostalo.jpg");
+  background-position: 20% 20%;
+  background-size: 300px;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  filter: blur(2px);
+  position: relative;
+  background-color: red; }
+
+.reference2 {
+  width: 700px;
+  height: 100px;
+  background: url("../../assets/img/slavina2.jpg");
+  background-color: blue;
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+  top: 50px; }
+
+.roditelj {
+  height: 300px;
+  width: 400px;
+  position: relative;
+  background-color: green;
+  opacity: 1;
+  box-shadow: 13px 13px 15px 1px #000000; }
+
+.refpara {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  opacity: 0.8;
+  color: red; }
+
+.refpara1 {
+  font-size: 20px; }
+
+.sijalica1 {
+  float: left;
+  margin-right: 30px;
+  filter: blur(2px); }
+
+.sijalica2 {
+  float: right;
+  margin-top: 30px;
+  margin-right: 30px;
+  color: red; }
+
+.linije {
+  position: absolute;
+  width: 1000px;
+  left: 130px;
+  background-color: yellowgreen;
+  padding: 10px; }
+  .linije p {
+    display: inline-block;
+    background-color: blue;
+    color: red;
+    margin-right: 15px; }

@@ -4,7 +4,9 @@ import { Grid, Row, Col } from 'react-bootstrap';
 class Proizvodi extends Component {
     render() {
         return (
+          <section className="proizvodi">
             <Grid >
+              <h1>Provodi</h1>
             <Row>
               <Col>
                <img width={900} height={500} src="../../../assets/img/namestaj1.jpg" alt="namestaj"/>
@@ -23,6 +25,7 @@ class Proizvodi extends Component {
                </Col>    
             </Row>
           </Grid>
+          </section>
         );
     }
 }

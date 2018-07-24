@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(236, 236, 240);
+}
+
+a {
+    color:$font-color-dark;
+}
+
+.navbar__brand {
+    position: relative;
+
+    &__image {
+        position:absolute;
+        margin-left: 10px;
+    }
+}

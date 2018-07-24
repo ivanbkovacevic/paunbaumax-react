@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, NavItem, Navbar, } from 'react-bootstrap';
+import { Nav, NavItem, Navbar, Image } from 'react-bootstrap';
 
 class Navigation extends Component {
 
@@ -8,9 +8,10 @@ class Navigation extends Component {
         return (
             <div>
                 <Navbar>
+        
                     <Navbar.Toggle />
                     <Navbar.Collapse>
-                        <Nav>
+                        <Nav pullRight>
                             <NavItem >
                                 <Link to="/onama">
                                     O NAMA

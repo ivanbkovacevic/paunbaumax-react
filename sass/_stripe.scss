@@ -1,0 +1,33 @@
+.stripe {
+    background-image: url('../public/assets/img/slusalica.png') no-repeat -433px -51px;
+    width: 33px;
+	height: 33px;
+}
+
+.contact-info {
+    background-color: rgba(248, 246, 246, 0.658);
+    font-weight: 300;
+    color: $font-color-dark;
+    height: 40px;
+    position: relative;
+    border-bottom: 1px solid $font-color-dark;
+
+}
+
+.contact-info-phone {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.contact-info-email {
+    position: absolute;
+    margin-left: 250px;
+    margin-top: 10px;
+    color: $font-color-dark;
+}
+
+a:link {
+    text-decoration: none;
+    color: $font-color-dark;
+}

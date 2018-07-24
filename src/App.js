@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid} from 'react-bootstrap';
 import { Route, Switch } from 'react-router-dom';
 import Navigation from '../src/components/Navigation/Navigation';
 import Footer from './components/Footer/Footer';
@@ -7,11 +8,14 @@ import Onama from '../src/components/Onama/Onama';
 import Reference from '../src/components/Reference/Reference';
 import Kontakt from '../src/components/Kontakt/Kontakt';
 import Proizvodi from '../src/components/Proizvodi/Proizvodi';
+import Stripe from '../src/components/Stripe/Stripe';
+
 
 class App extends Component {
   render() {
     return (
-     <div>
+    <div>
+       <Stripe/>
         <Navigation />
           <Switch>      
             <Route path="/onama" component={Onama}/>
@@ -19,7 +23,8 @@ class App extends Component {
             <Route path="/kontakt" component={Kontakt}/>
             <Route path="/proizvodi" component={Proizvodi}/>  
             <Route path="/" exact component={Home}/>        
-          </Switch>    
+          </Switch>  
+
        <Footer />
        
      </div>

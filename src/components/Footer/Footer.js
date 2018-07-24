@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import {  Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import logo from './logo-gradjevina-whiteF.png';
 
 class Footer extends Component {
   render() {
     return (
       <div>
-        <div className="line">linija</div>
+       
         <Row className="footer">
           <Col lg={3}>
-            <img src={logo} alt={"logo"}/>
-            </Col>
+            <img src={logo} alt={"logo"} />
+          </Col>
           <Col lg={2}>
             <p>POCETNA</p>
             <p>O NAMA</p>
@@ -33,7 +33,7 @@ class Footer extends Component {
               salonkeramike@panbaumax.rs
               </Col>
           <Col lg={3}>
-            
+
           </Col>
         </Row>
       </div>
