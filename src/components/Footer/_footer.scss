@@ -1,9 +1,69 @@
-
-
 .footer {
-    background-color: $color-footer;
-    color: white;
-    padding:50px;
-    margin-top:20px;
+        padding: 0;
+        position: relative;
+
+    &__row {
+        background-color: $color-footer;
+        color: white;
+        padding:50px;
+        margin-top:20px;
+        font-size: 17px;
+    }
+
+    &__col {
+
+        &--links {
+            color:red;
+            text-align: left;
+        }
+
+        &--satnica {
+            color: blue;
+            text-align: left;
+        }
+
+        &--adresa {
+            color:yellow;
+            text-align: left;
+            margin-left: 20px;
+
+        }
+
+        &--social {
+          color:white;
+          background-color: green;
+        
+      
+            &--facebook {
+                background: url('../img/fb-footer.png') no-repeat 50% 50%;
+                background-color: red;
+                background-size: content; 
+                display: inline-block;
+              
+                width: 30px;
+                height: 30px;
+               
+               
+            }
+
+            &--instagram {
+                background: url('../img/insta-footer.png') no-repeat 50% 50%;
+                background-color: red;
+                background-size: content; 
+                display: inline-block;
+                width: 60px;
+                height: 30px;
+               
+               
+            }
+           
+        }
+
+       
+    }
+
+   
+
+   
 }
 

@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
     <div>
-       <Stripe/>
+       {/* <Stripe/> */}
         <Navigation />
           <Switch>      
             <Route path="/onama" component={Onama}/>

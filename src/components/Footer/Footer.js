@@ -1,41 +1,57 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import logo from './logo-gradjevina-whiteF.png';
 
 class Footer extends Component {
   render() {
     return (
-      <div>
-       
-        <Row className="footer">
+      <div className='footer container-fluid'>
+
+        <Row className="footer__row">
+          <Col lg={2}>
+            <div className="footer__col">
+              <img src={logo} alt={"logo"} />
+            </div>
+
+          </Col>
+          <Col lg={2}>
+            <div className="footer__col--links">
+              <p>POCETNA</p>
+              <p>O NAMA</p>
+              <p>PROIZVODI</p>
+              <p>REFERENCE</p>
+              <p>KONTAKT</p>
+            </div>
+
+          </Col>
+          <Col lg={2}>
+            <div className="footer__col--satnica">
+              Radno vreme:
+                Ponedeljak - Petak
+                08h - 20h
+                Subota
+                08h - 15h
+            </div>
+          </Col>
           <Col lg={3}>
-            <img src={logo} alt={"logo"} />
-          </Col>
-          <Col lg={2}>
-            <p>POCETNA</p>
-            <p>O NAMA</p>
-            <p>PROIZVODI</p>
-            <p>REFERENCE</p>
-            <p>KONTAKT</p>
-          </Col>
-          <Col className="satnica" lg={2}>
-            Radno vreme:
-            Ponedeljak - Petak
-            08h - 20h
-            Subota
-            08h - 15h
-              </Col>
-          <Col lg={2}>
-            Pan Bau Max Keramika
+            <div className="footer__col--adresa">
+              Pan Bau Max Keramika
               ul. Lava Tolstoja 60
               26000 Pančevo
               +381 13 403 638
               salonkeramike@panbaumax.rs
-              </Col>
+          </div>
+
+          </Col>
           <Col lg={3}>
+            <div className="footer__col--social">
+              <span className="footer__col--social--facebook"></span>
+              <span className="footer__col--social--instagram"></span>
+            </div>
 
           </Col>
         </Row>
+
       </div>
     );
   }

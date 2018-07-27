@@ -1,46 +1,88 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, NavItem, Navbar, Image } from 'react-bootstrap';
+import { Nav, NavItem, Navbar, Image, Modal, Button } from 'react-bootstrap';
 
 class Navigation extends Component {
 
+    state = {
+        show: false
+    }
+
+    handleShow=()=> {
+        this.setState({ show: true });
+      }
+    
+      handleHide=()=> {
+        this.setState({ show: false });
+      }
+    
+
+
     render() {
         return (
-            <div>
-                <Navbar>
-        
+            <section className="section-navigation">
+             <div  >MODAL</div>
+                <Navbar className="navbar" fixedTop>
                     <Navbar.Toggle />
                     <Navbar.Collapse>
-                        <Nav pullRight>
+                        <Nav className="nav-main" pullRight>
                             <NavItem >
                                 <Link to="/onama">
-                                    O NAMA
+                                    O nama
                         </Link>
                             </NavItem>
                             <NavItem>
                                 <Link to="/">
-                                    HOME
+                                    Home
                         </Link>
                             </NavItem>
                             <NavItem>
                                 <Link to="/kontakt">
-                                    KONTAKT
+                                    Kontakt
                         </Link>
                             </NavItem>
                             <NavItem>
                                 <Link to="/reference">
-                                    REFERENCE
+                                    Reference
                         </Link>
                             </NavItem>
                             <NavItem>
                                 <Link to="/proizvodi">
-                                    PROIZVODI
+                                    Proizvodi
                         </Link>
+                            </NavItem>
+                            <NavItem>
+                              <i onClick={this.handleShow} className="fas fa-search fa-lg"></i>
                             </NavItem>
                         </Nav>
                     </Navbar.Collapse>
-                </Navbar>
-            </div>
+                </Navbar>    
+                <Modal
+          {...this.props} 
+          show={this.state.show}
+          onHide={this.handleHide}
+          dialogClassName="custom-modal"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-lg">
+             Title modalov
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Ovo je modal</h4>
+            <p>
+              Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
+              unde commodi aspernatur enim, consectetur. Cumque deleniti
+              temporibus ipsam atque a dolores quisquam quisquam adipisci
+              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
+              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem
+            </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.handleHide} className="btn" bsSize="sm" bsStyle="danger">Close</Button>
+          </Modal.Footer>
+        </Modal>
+            </section>
         );
     }
 }

@@ -1,16 +1,56 @@
-body {
-    background-color: rgb(236, 236, 240);
+.navbar {
+    background-color: white;
+    opacity: 0.8;
+    height: 60px;
+    border-bottom: 1px solid $border-color-blue;
+    margin-right: 0px;
+}
+
+.nav-main {
+    margin-right: 0px;
+    padding-right: 0px;
 }
 
 a {
     color:$font-color-dark;
+    font-size: 18px;
 }
 
 .navbar__brand {
     position: relative;
+     background-clip: $navbar-color-gray;
 
     &__image {
         position:absolute;
         margin-left: 10px;
     }
+}
+
+section-navigation {
+    position: relative;
+}
+
+.modal-header {
+    background-color: $color-primary;
+    color: white;
+    border-top: 3px;
+}
+
+.close {
+   
+    font-size: 35px;
+    
+}
+
+span {
+    color:white;
+    opacity: 1;
+}
+
+.modal-body {
+   background-color: $button-color-gray;
+}
+
+.btn {
+    background-color: $button-color-gray;
 }
