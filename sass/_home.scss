@@ -1,0 +1,61 @@
+.brand__slider {
+    background-color:$color-brand;
+    font-size: 1rem;
+    height: 300px;
+    width: 100%;
+    margin-top: -150px;
+}
+
+.home-hot-spots {
+    position: relative;
+    border: 1px solid $border-color-blue;
+
+
+    &__box1 {
+        position: absolute;
+        border: 2px solid blue;
+        width: 100px;
+        height: 50px;
+        top: 10%;
+        left: 16%;
+        @include pictureShow(160px);
+        @include rotacijaKrsta(60px,359deg);
+
+    }
+
+    
+    &__marker1 {
+        position: absolute;
+        top: 5%;
+        transition: all 0.5s;
+        border: 3px solid red;
+      }
+
+    &__product1 {
+        position: absolute;
+        top: 46%;
+        left: 26%;
+        transition: all 0.5s;
+        border: 5px solid green;
+    
+    }
+   
+     &__box2 {
+        position: absolute;
+        border: 2px solid blue;
+        top: 0%;
+        left: 46%;  
+        // @include rotacijaKrsta(60px,359deg);
+     }
+
+     &__box3 {
+        position: absolute;
+        border: 2px solid blue;
+        top: 40%;
+        left: 46%;  
+        // @include rotacijaKrsta(60px,359deg);
+     }
+
+    
+   
+}

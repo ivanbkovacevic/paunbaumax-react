@@ -1,7 +1,217 @@
+:root {
+  --color-primary: gray; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.6; }
+
 .pera {
   color: #9c9797;
   background-color: yellow;
   font-size: 30px; }
+
+.brand__slider {
+  background-color: #d1cbc4;
+  font-size: 1rem;
+  height: 300px;
+  width: 100%;
+  margin-top: -150px; }
+
+.home-hot-spots {
+  position: relative;
+  border: 1px solid #065596; }
+  .home-hot-spots__box1 {
+    position: absolute;
+    border: 2px solid blue;
+    width: 100px;
+    height: 50px;
+    top: 10%;
+    left: 16%; }
+    .home-hot-spots__box1:hover .home-hot-spots__product1 {
+      opacity: 1;
+      transform: translateX(160px); }
+    .home-hot-spots__box1:hover .home-hot-spots__marker1 {
+      transform: translateX(60px) rotateZ(359deg); }
+  .home-hot-spots__marker1 {
+    position: absolute;
+    top: 5%;
+    transition: all 0.5s;
+    border: 3px solid red; }
+  .home-hot-spots__product1 {
+    position: absolute;
+    top: 46%;
+    left: 26%;
+    transition: all 0.5s;
+    border: 5px solid green; }
+  .home-hot-spots__box2 {
+    position: absolute;
+    border: 2px solid blue;
+    top: 0%;
+    left: 46%; }
+  .home-hot-spots__box3 {
+    position: absolute;
+    border: 2px solid blue;
+    top: 40%;
+    left: 46%; }
+
+.home-categories {
+  background-color: aqua;
+  height: 500px;
+  margin-top: 30px;
+  padding: 0;
+  transition: all 0.6s; }
+  .home-categories--sanitarija {
+    background-color: blue;
+    padding: 0;
+    height: 400px;
+    background-image: url(sanitarija-cat.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 90px; }
+    .home-categories--sanitarija--heading {
+      transition: all 0.6s; }
+    .home-categories--sanitarija:hover .home-categories__linkbox {
+      opacity: 1;
+      height: 100%; }
+    .home-categories--sanitarija:hover .home-categories--sanitarija--heading {
+      opacity: 0;
+      transform: translateY(-100px); }
+    .home-categories--sanitarija:hover .home-categories--sanitarija__sanitarijaList {
+      opacity: 1;
+      transform: translateY(30px); }
+  .home-categories--slavine {
+    background-color: blue;
+    padding: 0;
+    height: 400px;
+    background-image: url(slavina-cat.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .home-categories--slavine--slavine__heading {
+      transition: all 0.6s; }
+    .home-categories--slavine:hover .home-categories__linkbox {
+      opacity: 1;
+      height: 100%; }
+    .home-categories--slavine:hover .home-categories--slavine--slavine__heading {
+      opacity: 0;
+      transform: translateY(-130px); }
+  .home-categories--ostalo {
+    background-color: blue;
+    padding: 0;
+    height: 400px;
+    background-image: url(ostalo-cat.png);
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .home-categories--ostalo:hover .home-categories__linkbox {
+      opacity: 1;
+      height: 100%; }
+    .home-categories--ostalo--heading {
+      transition: all 0.6s; }
+    .home-categories--ostalo:hover .home-categories--ostalo--heading {
+      opacity: 0;
+      transform: translateY(-130px); }
+  .home-categories-plocice {
+    background-color: bisque;
+    padding: 0;
+    height: 400px;
+    background-image: url(plocice-cat.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 30px;
+    transition: all 0.6s; }
+    .home-categories-plocice--heading {
+      transition: all 0.6s; }
+    .home-categories-plocice:hover .home-categories-plocice--heading {
+      opacity: 0;
+      transform: translateY(-130px); }
+    .home-categories-plocice:hover .home-categories__linkbox {
+      opacity: 1;
+      height: 100%; }
+    .home-categories-plocice:hover .home-categories__linkbox--listL {
+      opacity: 1;
+      transform: translateY(30px); }
+    .home-categories-plocice:hover .home-categories__linkbox--listR {
+      opacity: 1;
+      transform: translateY(30px); }
+  .home-categories__linkbox {
+    position: relative;
+    background-color: rgba(145, 12, 12, 0.541);
+    margin: 20px;
+    padding: 20px;
+    height: 100px;
+    color: white;
+    transition: all 0.6s;
+    font-size: 2rem; }
+    .home-categories__linkbox--sanitarijaList {
+      margin-top: 70px;
+      list-style: none;
+      color: white;
+      opacity: 0;
+      transition: all 0.6s; }
+      .home-categories__linkbox--sanitarijaList a:link,
+      .home-categories__linkbox--sanitarijaList a:visited {
+        color: white; }
+      .home-categories__linkbox--sanitarijaList:hover {
+        opacity: 1;
+        transform: translateY(30px); }
+    .home-categories__linkbox:hover .home-categories__linkbox--sanitarijaList {
+      opacity: 1;
+      transform: translateY(30px); }
+    .home-categories__linkbox--listL {
+      position: absolute;
+      display: block;
+      left: 20%;
+      list-style: none;
+      cursor: pointer;
+      color: white;
+      opacity: 0;
+      transition: all 0.6s; }
+      .home-categories__linkbox--listL a:link,
+      .home-categories__linkbox--listL a:visited {
+        color: white; }
+      .home-categories__linkbox--listL::first-line {
+        font-size: 4rem; }
+    .home-categories__linkbox--listR {
+      position: absolute;
+      display: block;
+      left: 60%;
+      text-decoration: none;
+      list-style: none;
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.6s; }
+      .home-categories__linkbox--listR a:link,
+      .home-categories__linkbox--listR a:visited {
+        color: white; }
+      .home-categories__linkbox--listR::first-line {
+        font-size: 4rem; }
+
+.home-categories-mainheading {
+  text-align: center;
+  margin-bottom: 50px; }
+  .home-categories-mainheading--linija {
+    margin: 0 auto; }
+
+.paragraf-opisproizvoda {
+  text-align: start;
+  font-size: 1.5rem; }
+
+.img-fluid {
+  max-width: 100%;
+  height: auto; }
 
 .slika {
   width: 40%;
@@ -58,17 +268,18 @@ span {
     color: white;
     padding: 50px;
     margin-top: 20px;
-    font-size: 17px; }
+    font-size: 1.5rem; }
   .footer__col--links {
-    color: red;
+    color: white;
     text-align: left; }
   .footer__col--satnica {
-    color: blue;
+    color: white;
     text-align: left; }
   .footer__col--adresa {
-    color: yellow;
+    color: white;
     text-align: left;
-    margin-left: 40px; }
+    margin-left: 20px;
+    padding: 0 20px; }
   .footer__col--social {
     color: white;
     background-color: green; }
@@ -87,77 +298,65 @@ span {
       width: 60px;
       height: 30px; }
 
-.container-opisproizvoda {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-  .container-opisproizvoda .paragraf-opisproizvoda {
-    flex-grow: 1; }
-
-.onama .header {
-  font-size: 18px;
+.header {
   background: linear-gradient(to right, rgba(36, 35, 35, 0.5), rgba(36, 35, 35, 0.5)), url("./namestaj1.jpg") no-repeat center;
   background-size: cover;
   color: white;
-  padding: 70px;
-  height: 50vh; }
-  .onama .header h3 {
-    margin-bottom: 10px; }
-  .onama .header img {
-    margin-top: 30px; }
-  .onama .header .linija {
-    border-bottom: 1px solid blue;
-    width: 100px;
-    margin-bottom: 20px; }
+  padding: 150px 50px;
+  min-height: 50vh; }
+  .header__naslov {
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 2.5rem; }
+  .header__paragraph {
+    margin-bottom: 10px;
+    font-size: 1.5rem; }
+  .header__logo {
+    margin-top: 20px; }
 
-.onama .ikonice {
-  padding: 50px 10px; }
-  .onama .ikonice .ik1 {
-    display: flex;
-    border-right: 1px solid blue; }
-    .onama .ikonice .ik1 h3 {
-      align-self: start; }
-  .onama .ikonice .ik2 {
-    border-right: 1px solid blue;
-    display: flex;
-    align-items: center;
-    border-right: 1px solid blue; }
-    .onama .ikonice .ik2 i {
-      justify-self: start; }
-    .onama .ikonice .ik2 h3 {
-      align-self: start;
-      justify-self: center; }
-    .onama .ikonice .ik2 p {
-      align-self: flex-end; }
-  .onama .ikonice .ik3 {
+.linija {
+  border-bottom: 1px solid blue;
+  width: 100px;
+  margin-bottom: 20px; }
+
+.ikonice {
+  padding: 200px 10px;
+  margin-bottom: 10px;
+  background-color: #9c9797; }
+  .ikonice__ikona {
     display: flex;
     align-items: flex-start;
-    border-right: 1px solid blue; }
+    justify-content: center;
+    border-right: 1px solid blue;
+    margin-left: 30px; }
+    .ikonice__ikona--img {
+      width: auto; }
+    .ikonice__ikona--description {
+      margin-left: 30px;
+      margin-right: 10px; }
+      .ikonice__ikona--description--header {
+        margin-bottom: 10px;
+        margin-top: 0px;
+        text-align: start; }
+      .ikonice__ikona--description--text {
+        color: aqua;
+        text-align: start;
+        font-size: 1.2rem; }
 
-.onama .galerija {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: #7e7979; }
-  .onama .galerija .gal1 {
-    margin: 10px;
-    border: 2px solid white; }
-  .onama .galerija .gal7 {
-    margin: 10px;
-    border: 2px solid yellow;
-    align-self: flex-end;
-    justify-self: flex-start; }
-  .onama .galerija img {
-    margin: 10px;
-    animation: galerija 1.7s; }
-  .onama .galerija img:hover {
-    transform: scale(1.3); }
-
-.onama .borred {
-  border: 30px solid red; }
+.galerija {
+  padding: 2px;
+  background-color: #9c9797;
+  transition: all 0.5s;
+  width: 100%;
+  height: auto; }
+  .galerija__box {
+    margin-left: 25px;
+    max-width: 100%;
+    padding: 10px;
+    border: 2px solid red; }
+    .galerija__box__img {
+      max-width: 100%;
+      border: 2px solid blueviolet; }
 
 @keyframes galerija {
   0% {

@@ -1,0 +1,14 @@
+@mixin rotacijaKrsta($prop1, $prop2) {
+    &:hover .home-hot-spots__marker1 {
+        transform: translateX($prop1) rotateZ($prop2);
+    }
+}
+
+@mixin pictureShow($prop3) {
+    &:hover .home-hot-spots__product1 {
+        opacity: 1;
+        transform: translateX($prop3);
+       
+    }
+   
+}

@@ -7,25 +7,26 @@
         color: white;
         padding:50px;
         margin-top:20px;
-        font-size: 17px;
+        font-size: 1.5rem;
     }
 
     &__col {
 
         &--links {
-            color:red;
+            color:white;
             text-align: left;
         }
 
         &--satnica {
-            color: blue;
+            color:white;
             text-align: left;
         }
 
         &--adresa {
-            color:yellow;
+            color:white;
             text-align: left;
             margin-left: 20px;
+            padding:0 20px;
 
         }
 

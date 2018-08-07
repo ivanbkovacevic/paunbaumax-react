@@ -1,10 +1,13 @@
 
+@import 'base';
 @import 'variables';
+@import 'mixins';
 @import 'components';
+@import 'home';
+@import 'opisproizvoda';
 @import 'slika';
 @import 'navigation';
 @import '../src/components/Footer/footer';
-@import '../src/components/OpisProizvoda/opisproizvoda';
 @import '../src/components/Onama/onama';
 @import 'stripe';
 @import 'onama_home';
