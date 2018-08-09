@@ -1,10 +1,41 @@
 import React from 'react';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 const Kontakt = (props) => {
     return (
         <div>
-            KONTAKT
+            <div className="kontakt-container">
+                KONTAKT
+                <div className="map-container">
+                  <div className="map-container-inform">bfdhb</div>
+                </div>
+            </div>
+
+            <div className="info__container__main">
+                <Row>
+                    <Col lg={2}>bhetd</Col>
+                    <Col lg={8}>
+                        <div className="info__container__heading">
+                            <h2 className="info__container__heading--naslov"> Kontaktirajte nas</h2>
+                            <div className="linijaKontakt"></div>
+                        </div>
+
+                        
+                           <form className="info__container__form">
+                               <input type="text" className="info__container__form--name" placeholder="Ime"/>
+                               <input type="email" className="info__container__form--email" placeholder="Email"/>
+                              <textarea rows="20" cols="50" className="info__container__form--poruka">Poruka</textarea>
+                              <Button className="button-detaljnije">POSALJI</Button>
+                          </form>
+
+                       
+                    </Col>
+                    <Col lg={2}>e</Col>
+                </Row>
+            </div>
+
         </div>
+
     );
 };
 

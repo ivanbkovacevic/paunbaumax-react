@@ -1,0 +1,67 @@
+
+
+.map-container {
+    width: 100%;
+    height: 800px;
+    border: 2px solid red;
+    background-color: rgb(111, 177, 24);
+    position: relative;
+
+    &-inform {
+        position: absolute;
+        opacity: 0.5;
+        top: 15%;
+        left:25%;
+        width: 400px;
+        height: 300px;
+        border: 2px solid blue;
+        background-color: white;
+    }
+}
+
+.linijaKontakt {
+    @include linija;
+  margin-top: 15px;
+}
+
+.info__container {
+
+    &__main {
+        text-align: center;
+        width: 100%;
+        height: 800px;
+        border: 2px solid red;
+        background-color: $color-brand;
+    }
+
+    &__heading {
+        text-align: start;
+
+        &--naslov {
+            font-weight: 100;
+        }
+    }
+
+    &__form {
+       display: flex;
+       flex-direction: column;
+
+       &--name {
+           margin-bottom: 20px;
+           height: 50px;
+       }
+
+       &--email {
+        margin-bottom: 20px;
+        height: 50px;
+
+    }
+
+        &--poruka {
+            margin-bottom: 20px;
+            height: 220px;
+        }
+
+    }
+}
+

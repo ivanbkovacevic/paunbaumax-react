@@ -1,14 +1,26 @@
-@mixin rotacijaKrsta($prop1, $prop2) {
+@mixin rotacijaKrsta1($prop1, $prop2) {
     &:hover .home-hot-spots__marker1 {
         transform: translateX($prop1) rotateZ($prop2);
     }
 }
 
-@mixin pictureShow($prop3) {
-    &:hover .home-hot-spots__product1 {
-        opacity: 1;
-        transform: translateX($prop3);
-       
+@mixin rotacijaKrsta2($prop1, $prop2) {
+    &:hover .home-hot-spots__marker2 {
+        transform: translateX($prop1) rotateZ($prop2);
     }
-   
 }
+
+@mixin rotacijaKrsta3($prop1, $prop2) {
+    &:hover .home-hot-spots__marker3 {
+        transform: translateX($prop1) rotateZ($prop2);
+    }
+}
+
+@mixin linija {
+        border-bottom: 1px solid blue;
+        width: 100px;
+        margin-bottom: 20px;
+ 
+}
+
+   

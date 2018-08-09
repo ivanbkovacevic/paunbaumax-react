@@ -24,6 +24,68 @@ body {
   background-color: yellow;
   font-size: 30px; }
 
+.button-detaljnije {
+  color: #005ba8;
+  background-color: #edeae7;
+  border: 1px solid #005ba8;
+  border-radius: 0%;
+  transition: all 0.5s;
+  width: 200;
+  height: 50px;
+  padding: 10px 62px;
+  margin-top: 30px; }
+
+.button-detaljnije:hover {
+  background-color: #005ba8;
+  color: white; }
+
+.map-container {
+  width: 100%;
+  height: 800px;
+  border: 2px solid red;
+  background-color: #6fb118;
+  position: relative; }
+  .map-container-inform {
+    position: absolute;
+    opacity: 0.5;
+    top: 15%;
+    left: 25%;
+    width: 400px;
+    height: 300px;
+    border: 2px solid blue;
+    background-color: white; }
+
+.linijaKontakt {
+  border-bottom: 1px solid blue;
+  width: 100px;
+  margin-bottom: 20px;
+  margin-top: 15px; }
+
+.info__container__main {
+  text-align: center;
+  width: 100%;
+  height: 800px;
+  border: 2px solid red;
+  background-color: #d1cbc4; }
+
+.info__container__heading {
+  text-align: start; }
+  .info__container__heading--naslov {
+    font-weight: 100; }
+
+.info__container__form {
+  display: flex;
+  flex-direction: column; }
+  .info__container__form--name {
+    margin-bottom: 20px;
+    height: 50px; }
+  .info__container__form--email {
+    margin-bottom: 20px;
+    height: 50px; }
+  .info__container__form--poruka {
+    margin-bottom: 20px;
+    height: 220px; }
+
 .brand__slider {
   background-color: #d1cbc4;
   font-size: 1rem;
@@ -39,34 +101,87 @@ body {
     border: 2px solid blue;
     width: 100px;
     height: 50px;
-    top: 10%;
-    left: 16%; }
-    .home-hot-spots__box1:hover .home-hot-spots__product1 {
-      opacity: 1;
-      transform: translateX(160px); }
+    top: 20%;
+    left: 16%;
+    z-index: 5; }
     .home-hot-spots__box1:hover .home-hot-spots__marker1 {
       transform: translateX(60px) rotateZ(359deg); }
-  .home-hot-spots__marker1 {
-    position: absolute;
-    top: 5%;
-    transition: all 0.5s;
-    border: 3px solid red; }
-  .home-hot-spots__product1 {
-    position: absolute;
-    top: 46%;
-    left: 26%;
-    transition: all 0.5s;
-    border: 5px solid green; }
   .home-hot-spots__box2 {
     position: absolute;
     border: 2px solid blue;
-    top: 0%;
-    left: 46%; }
+    width: 100px;
+    height: 50px;
+    top: 20%;
+    left: 16%;
+    z-index: 5; }
+    .home-hot-spots__box2:hover .home-hot-spots__marker2 {
+      transform: translateX(60px) rotateZ(359deg); }
   .home-hot-spots__box3 {
     position: absolute;
     border: 2px solid blue;
-    top: 40%;
-    left: 46%; }
+    width: 100px;
+    height: 50px;
+    top: 20%;
+    left: 16%;
+    z-index: 5; }
+    .home-hot-spots__box3:hover .home-hot-spots__marker3 {
+      transform: translateX(60px) rotateZ(359deg); }
+  .home-hot-spots__marker1 {
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s;
+    border: 3px solid red;
+    z-index: 3; }
+  .home-hot-spots__marker2 {
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s;
+    border: 3px solid red;
+    z-index: 3; }
+  .home-hot-spots__marker3 {
+    position: absolute;
+    top: 15%;
+    transition: all 0.5s;
+    border: 3px solid red;
+    z-index: 3; }
+  .home-hot-spots__product1 {
+    position: absolute;
+    opacity: 0;
+    top: 15%;
+    left: 20%;
+    transition: all 0.5s;
+    border: 10px solid gray;
+    z-index: 2; }
+  .home-hot-spots__product2 {
+    position: absolute;
+    opacity: 0;
+    top: 35%;
+    left: 50%;
+    transition: all 0.5s;
+    border: 10px solid gray;
+    z-index: 2; }
+  .home-hot-spots__product3 {
+    position: absolute;
+    opacity: 0;
+    top: 55%;
+    left: 70%;
+    transition: all 0.5s;
+    border: 10px solid gray;
+    z-index: 2; }
+  .home-hot-spots__box2 {
+    position: absolute;
+    border: 2px solid blue;
+    top: 30%;
+    left: 46%;
+    width: 100px;
+    height: 50px; }
+  .home-hot-spots__box3 {
+    position: absolute;
+    border: 2px solid blue;
+    top: 50%;
+    left: 76%;
+    width: 100px;
+    height: 50px; }
 
 .home-categories {
   background-color: aqua;
@@ -424,3 +539,6 @@ a:link {
   width: 70px;
   height: 1px;
   background-color: #065596; }
+
+.ref-div {
+  height: 50vh; }

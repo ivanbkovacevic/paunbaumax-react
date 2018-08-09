@@ -1,0 +1,10 @@
+.move {
+   transform: translateX(70px);
+   opacity: 1;
+   
+}
+
+.remove {
+    transform: translateX(-70px);
+    opacity: 0;
+}
