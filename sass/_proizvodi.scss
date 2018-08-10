@@ -1,0 +1,18 @@
+.proizvodi {
+
+    &-header {
+        height: 400px;
+        width: 100%;
+        background-image: url(../img/product-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &__container__filter {
+background-color: red;
+    }
+
+    &__container__proizvodi {
+        background-color: blue;
+    }
+}

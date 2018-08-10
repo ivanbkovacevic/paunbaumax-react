@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 import Slider from '../Slider/Slider';
+import Brand_slider from '../Slider/Brand_slider';
 import Onama from './home-about-us.png';
 import Marker from './hot-spot.png';
 import Hotspot from './hotspot-1.png';
@@ -106,6 +107,14 @@ class Home extends Component {
                             <div className="home-categories--slavine">
                                 <div className="home-categories__linkbox">
                                     <h1 className="home-categories--slavine--slavine__heading">Slavine</h1>
+                                    <ul className="home-categories__linkbox--slavineList">
+                                        <li><a href="#">Lavabo</a></li>
+                                        <li><a href="#">Kada</a></li>
+                                        <li><a href="#">Bide</a></li>
+                                        <li><a href="#">Ugradne</a></li>
+                                        <li><a href="#">Sudopera</a></li>
+
+                                    </ul>
                                 </div>
                             </div>
 
@@ -114,6 +123,14 @@ class Home extends Component {
                             <div className="home-categories--ostalo">
                                 <div className="home-categories__linkbox">
                                     <h1 className="home-categories--ostalo--heading">Ostalo</h1>
+                                    <ul className="home-categories__linkbox--ostaloList">
+                                        <li><a href="#">Galanterija</a></li>
+                                        <li><a href="#">Kanalice i resetke</a></li>
+                                        <li><a href="#">Susaci</a></li>
+                                        <li><a href="#">Bojleri</a></li>
+                                        <li><a href="#">Lepkovi i hidroizolacija</a></li>
+
+                                    </ul>
                                 </div>
                             </div>
                         </Col>
@@ -121,7 +138,7 @@ class Home extends Component {
                 </Grid>
 
                 <section className="home-hot-spots">
-                    <img src="../../assets/img/panbaumax_home_v1.jpg" alt="hot spot" className="home-hot-spots__image" />
+                    <img src="../../assets/img/tesi-hot-spot.jpg" alt="hot spot" className="home-hot-spots__image" />
                     
                     <div onMouseEnter={(e)=>this.HandleEnter1('1')}
                         onMouseLeave={(e)=>this.HandleLeave1('1')}
@@ -168,9 +185,11 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </Grid>
-                <div className="brand__slider">
-                    gr
-                     </div>
+                <div className="brand__slider--container">
+                    <div className="brand__slider">
+                    <Brand_slider/>
+                    </div>
+                </div>
             </div>
         );
     }

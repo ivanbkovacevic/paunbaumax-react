@@ -5,9 +5,8 @@ import logo from './logo-gradjevina-whiteF.png';
 class Footer extends Component {
   render() {
     return (
-      <div className='footer container-fluid'>
-
-        <Row className="footer__row">
+      <div className="footer__row">
+        <Row >
           <Col lg={2}>
             <div className="footer__col">
               <img src={logo} alt={"logo"} />
@@ -44,9 +43,15 @@ class Footer extends Component {
 
           </Col>
           <Col lg={3}>
-            <div className="footer__col--social">
-              <span className="footer__col--social--facebook"></span>
-              <span className="footer__col--social--instagram"></span>
+            <div className="footer__col--social">  
+           
+                        <svg className="footer__col--social--icon-facebook">
+                                  <use xlinkHref="sprite.svg#icon-facebook2"></use>
+                        </svg>
+                     
+              <svg className="footer__col--social--icon-instagram">
+                                  <use xlinkHref="sprite.svg#icon-instagram"></use>
+                        </svg>
             </div>
 
           </Col>

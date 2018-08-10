@@ -39,6 +39,12 @@ body {
   background-color: #005ba8;
   color: white; }
 
+.linijaKontakt {
+  border-bottom: 1px solid blue;
+  width: 100px;
+  margin-bottom: 20px;
+  margin-top: 15px; }
+
 .map-container {
   width: 100%;
   height: 800px;
@@ -46,20 +52,36 @@ body {
   background-color: #6fb118;
   position: relative; }
   .map-container-inform {
+    padding: 20px;
     position: absolute;
     opacity: 0.5;
+    font-size: 1.8rem;
     top: 15%;
     left: 25%;
     width: 400px;
     height: 300px;
     border: 2px solid blue;
-    background-color: white; }
-
-.linijaKontakt {
-  border-bottom: 1px solid blue;
-  width: 100px;
-  margin-bottom: 20px;
-  margin-top: 15px; }
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .map-container-inform--email {
+      text-align: start;
+      opacity: 1;
+      margin: 15px;
+      margin-left: 20px; }
+    .map-container-inform--telefon {
+      text-align: center;
+      width: 200px;
+      opacity: 1;
+      margin: 15px;
+      margin-left: 20px; }
+    .map-container-inform--adress {
+      text-align: start;
+      width: 200px;
+      opacity: 1;
+      margin: 15px;
+      margin-left: 20px; }
 
 .info__container__main {
   text-align: center;
@@ -86,16 +108,42 @@ body {
     margin-bottom: 20px;
     height: 220px; }
 
+.icon-mail {
+  margin-right: 20px;
+  height: 2rem;
+  width: 2rem; }
+
+.icon-phone {
+  margin-right: 20px;
+  height: 2rem;
+  width: 2rem; }
+
+.icon-home {
+  margin-right: 20px;
+  height: 2rem;
+  width: 2rem; }
+
 .brand__slider {
   background-color: #d1cbc4;
   font-size: 1rem;
-  height: 300px;
-  width: 100%;
-  margin-top: -150px; }
+  height: 200px;
+  width: 30%;
+  margin-top: -150px;
+  margin-left: 25%; }
+  .brand__slider--container {
+    background-color: #d1cbc4;
+    height: 200px;
+    width: 100%; }
+
+.indihide
+.carousel .carousel-indicators {
+  display: none; }
 
 .home-hot-spots {
   position: relative;
   border: 1px solid #065596; }
+  .home-hot-spots__image {
+    width: 100%; }
   .home-hot-spots__box1 {
     position: absolute;
     border: 2px solid blue;
@@ -285,6 +333,51 @@ body {
     .home-categories__linkbox:hover .home-categories__linkbox--sanitarijaList {
       opacity: 1;
       transform: translateY(30px); }
+    .home-categories__linkbox--slavineList {
+      margin-top: 70px;
+      list-style: none;
+      color: white;
+      opacity: 0;
+      transition: all 0.6s; }
+      .home-categories__linkbox--slavineList a:link,
+      .home-categories__linkbox--slavineList a:visited {
+        color: white; }
+      .home-categories__linkbox--slavineList:hover {
+        opacity: 1;
+        transform: translateY(30px); }
+    .home-categories__linkbox:hover .home-categories__linkbox--slavineList {
+      opacity: 1;
+      transform: translateY(30px); }
+    .home-categories__linkbox--slavineList {
+      margin-top: 70px;
+      list-style: none;
+      color: white;
+      opacity: 0;
+      transition: all 0.6s; }
+      .home-categories__linkbox--slavineList a:link,
+      .home-categories__linkbox--slavineList a:visited {
+        color: white; }
+      .home-categories__linkbox--slavineList:hover {
+        opacity: 1;
+        transform: translateY(30px); }
+    .home-categories__linkbox:hover .home-categories__linkbox--slavineList {
+      opacity: 1;
+      transform: translateY(30px); }
+    .home-categories__linkbox--ostaloList {
+      margin-top: 70px;
+      list-style: none;
+      color: white;
+      opacity: 0;
+      transition: all 0.6s; }
+      .home-categories__linkbox--ostaloList a:link,
+      .home-categories__linkbox--ostaloList a:visited {
+        color: white; }
+      .home-categories__linkbox--ostaloList:hover {
+        opacity: 1;
+        transform: translateY(30px); }
+    .home-categories__linkbox:hover .home-categories__linkbox--ostaloList {
+      opacity: 1;
+      transform: translateY(30px); }
     .home-categories__linkbox--listL {
       position: absolute;
       display: block;
@@ -375,6 +468,19 @@ span {
 .btn {
   background-color: #edeae7; }
 
+.proizvodi-header {
+  height: 400px;
+  width: 100%;
+  background-image: url(../img/product-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.proizvodi__container__filter {
+  background-color: red; }
+
+.proizvodi__container__proizvodi {
+  background-color: blue; }
+
 .footer {
   padding: 0;
   position: relative; }
@@ -397,21 +503,26 @@ span {
     padding: 0 20px; }
   .footer__col--social {
     color: white;
-    background-color: green; }
-    .footer__col--social--facebook {
-      background: url("../img/fb-footer.png") no-repeat 50% 50%;
-      background-color: red;
-      background-size: content;
-      display: inline-block;
+    height: 100px;
+    margin-left: 20px;
+    padding: 20px 20px;
+    position: relative; }
+    .footer__col--social--icon-facebook {
+      position: absolute;
+      top: 10%;
       width: 30px;
-      height: 30px; }
-    .footer__col--social--instagram {
-      background: url("../img/insta-footer.png") no-repeat 50% 50%;
-      background-color: red;
-      background-size: content;
-      display: inline-block;
-      width: 60px;
-      height: 30px; }
+      height: 30px;
+      display: block;
+      margin-right: 20px;
+      fill: aliceblue; }
+    .footer__col--social--icon-instagram {
+      position: absolute;
+      top: 80%;
+      width: 30px;
+      height: 30px;
+      display: block;
+      margin-right: 20px;
+      fill: aliceblue; }
 
 .header {
   background: linear-gradient(to right, rgba(36, 35, 35, 0.5), rgba(36, 35, 35, 0.5)), url("./namestaj1.jpg") no-repeat center;

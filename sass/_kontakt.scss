@@ -1,4 +1,7 @@
-
+.linijaKontakt {
+    @include linija;
+  margin-top: 15px;
+}
 
 .map-container {
     width: 100%;
@@ -8,21 +11,47 @@
     position: relative;
 
     &-inform {
+        padding: 20px;
         position: absolute;
         opacity: 0.5;
+        font-size: 1.8rem;
         top: 15%;
         left:25%;
         width: 400px;
         height: 300px;
         border: 2px solid blue;
         background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
+
+        &--email {
+            text-align: start;
+            opacity: 1;
+            margin: 15px ;
+            margin-left: 20px;
+        }
+
+        &--telefon {
+            text-align: center;
+            width: 200px;
+            opacity: 1;
+            margin: 15px ;
+            margin-left: 20px;
+        }
+
+        &--adress {
+            text-align: start;
+            width: 200px;
+            opacity: 1;
+            margin: 15px ;
+            margin-left: 20px;
+        }
     }
 }
 
-.linijaKontakt {
-    @include linija;
-  margin-top: 15px;
-}
+
 
 .info__container {
 
@@ -63,5 +92,27 @@
         }
 
     }
+}
+
+.icon {
+   
+    &-mail {
+        margin-right: 20px;
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &-phone {
+        margin-right: 20px;
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &-home {
+        margin-right: 20px;
+        height: 2rem;
+        width: 2rem;
+    }
+
 }
 

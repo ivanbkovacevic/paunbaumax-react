@@ -5,26 +5,21 @@ class Proizvodi extends Component {
     render() {
         return (
           <section className="proizvodi">
-            <Grid >
-              <h1>Provodi</h1>
-            <Row>
-              <Col>
-               <img width={900} height={500} src="../../../assets/img/namestaj1.jpg" alt="namestaj"/>
-              </Col>
-            </Row>
-    
+          <div className="proizvodi-header">
+          </div>
+               
             <Row >
-              <Col md={4}  >
-               a
+              <Col md={4}>
+               <div className="proizvodi__container__filter">
+                 filter
+               </div>
               </Col>   
-              <Col md={4}  >
-               b
-               </Col> 
-               <Col md={4}  >
-               c
-               </Col>    
+              <Col md={8}>
+              <div className="proizvodi__container__proizvodi">
+                proizvodi
+               </div>
+               </Col>     
             </Row>
-          </Grid>
           </section>
         );
     }

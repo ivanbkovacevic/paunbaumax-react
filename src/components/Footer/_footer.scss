@@ -31,40 +31,40 @@
         }
 
         &--social {
-          color:white;
-          background-color: green;
-        
-      
-            &--facebook {
-                background: url('../img/fb-footer.png') no-repeat 50% 50%;
-                background-color: red;
-                background-size: content; 
-                display: inline-block;
-              
+            color:white;
+           
+            height: 100px;
+            margin-left: 20px;
+            padding:20px 20px;
+            position: relative;
+           
+          
+            &--icon-facebook {
+               position: absolute;
+                top: 10%;
                 width: 30px;
                 height: 30px;
-               
-               
+                display:block;
+                margin-right: 20px;
+                fill: aliceblue;
             }
 
-            &--instagram {
-                background: url('../img/insta-footer.png') no-repeat 50% 50%;
-                background-color: red;
-                background-size: content; 
-                display: inline-block;
-                width: 60px;
+            &--icon-instagram {
+                position: absolute;
+                top: 80%;
+                width: 30px;
                 height: 30px;
-               
-               
-            }
-           
-        }
+                display:block;
+                margin-right: 20px;
+                fill: aliceblue;
 
-       
+            }
+
+        }
+  
     }
 
-   
-
-   
 }
+
+
 
