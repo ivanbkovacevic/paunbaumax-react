@@ -8,11 +8,108 @@
         background-size: cover;
     }
 
+    &__img {
+        width: 100%;
+        transition: all 0.2s;
+        margin-bottom: 15px;
+        
+
+        &:hover {
+            transform: scale(1.4);
+        }
+    }
+
+    &__title {
+      
+        color:$font-color-dark;
+    }
+
+    a:visited,
+    :active {
+        text-decoration: none;
+      
+    }
+
+    &__box {
+        overflow: hidden;
+    }
+
     &__container__filter {
-background-color: red;
+        background-color: $color-primary;
+        width: 100%;
+      
+       
+
+        &--1 {
+            background-color: $color-primary;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 2px solid red;
+          
+
+            &--ul {
+                list-style: none;
+            }
+        }
+
+        &--2 {
+            background-color: $color-primary;
+            width: 100%;
+            color: white;
+            border: 2px solid red;
+            margin-bottom: 10px;
+
+            &--ul {
+                list-style: none;
+            }
+        }
+
+        &--3 {           
+                background-color: $color-primary;
+                width: 100%;
+                color: red; 
+                border: 2px solid red; 
+                margin-bottom: 10px;
+
+                &--ul {
+                    list-style: none;
+                } 
+        }
+
+        &--4 {           
+            background-color: $color-primary;
+            width: 100%;
+            color: blue;         
+            border: 2px solid red; 
+            margin-bottom: 10px;
+            
+              &--ul {
+                list-style: none;
+            }
+    }
     }
 
     &__container__proizvodi {
-        background-color: blue;
+        background-color: white;
+        color:$font-color-dark;
+        margin-top: 90px;
     }
+
+    &__container__filter {
+        padding: 50px;
+        margin-top: 20px;
+    }
+}
+
+.h2--filter {
+    color:white;
+    font-weight: 100;
+
+}
+
+.icon-strelica {
+    width: 20px;
+    height: 20px;
+    margin-left: 50px;
+    fill: $button-color-blue;
 }

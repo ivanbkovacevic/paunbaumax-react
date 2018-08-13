@@ -7,6 +7,7 @@ const Kontakt = (props) => {
             <div className="kontakt-container">
                 KONTAKT
                 <div className="map-container">
+               
                     <div className="map-container-inform">
                          
                         <div className="map-container-inform--email">
@@ -32,8 +33,8 @@ const Kontakt = (props) => {
 
             <div className="info__container__main">
                 <Row>
-                    <Col lg={2}>bhetd</Col>
-                    <Col lg={8}>
+                    <Col lg={3}></Col>
+                    <Col lg={6}>
                         <div className="info__container__heading">
                             <h2 className="info__container__heading--naslov"> Kontaktirajte nas</h2>
 
@@ -48,7 +49,7 @@ const Kontakt = (props) => {
                             <Button className="button-detaljnije">POSALJI</Button>
                         </form>
                     </Col>
-                    <Col lg={2}>e</Col>
+                    <Col lg={3}></Col>
                 </Row>
             </div>
 

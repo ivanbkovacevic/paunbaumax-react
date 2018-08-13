@@ -6,7 +6,7 @@ class Brand_slider extends Component {
     state={
         indicators:false,
         controls:false,
-        interval:2000
+        interval:1000
     }
 
     render() {

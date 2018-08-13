@@ -39,6 +39,10 @@ body {
   background-color: #005ba8;
   color: white; }
 
+.h2 {
+  color: #323232;
+  font-weight: 100; }
+
 .linijaKontakt {
   border-bottom: 1px solid blue;
   width: 100px;
@@ -123,6 +127,9 @@ body {
   height: 2rem;
   width: 2rem; }
 
+#myCanvas {
+  border: 1px solid black; }
+
 .brand__slider {
   background-color: #d1cbc4;
   font-size: 1rem;
@@ -153,7 +160,7 @@ body {
     left: 16%;
     z-index: 5; }
     .home-hot-spots__box1:hover .home-hot-spots__marker1 {
-      transform: translateX(60px) rotateZ(359deg); }
+      transform: translateX(60px) rotateZ(360deg); }
   .home-hot-spots__box2 {
     position: absolute;
     border: 2px solid blue;
@@ -163,7 +170,7 @@ body {
     left: 16%;
     z-index: 5; }
     .home-hot-spots__box2:hover .home-hot-spots__marker2 {
-      transform: translateX(60px) rotateZ(359deg); }
+      transform: translateX(60px) rotateZ(360deg); }
   .home-hot-spots__box3 {
     position: absolute;
     border: 2px solid blue;
@@ -173,7 +180,7 @@ body {
     left: 16%;
     z-index: 5; }
     .home-hot-spots__box3:hover .home-hot-spots__marker3 {
-      transform: translateX(60px) rotateZ(359deg); }
+      transform: translateX(60px) rotateZ(360deg); }
   .home-hot-spots__marker1 {
     position: absolute;
     top: 15%;
@@ -475,11 +482,76 @@ span {
   background-repeat: no-repeat;
   background-size: cover; }
 
+.proizvodi__img {
+  width: 100%;
+  transition: all 0.2s;
+  margin-bottom: 15px; }
+  .proizvodi__img:hover {
+    transform: scale(1.4); }
+
+.proizvodi__title {
+  color: #323232; }
+
+.proizvodi a:visited,
+.proizvodi :active {
+  text-decoration: none; }
+
+.proizvodi__box {
+  overflow: hidden; }
+
 .proizvodi__container__filter {
-  background-color: red; }
+  background-color: #9c9797;
+  width: 100%; }
+  .proizvodi__container__filter--1 {
+    background-color: #9c9797;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid red; }
+    .proizvodi__container__filter--1--ul {
+      list-style: none; }
+  .proizvodi__container__filter--2 {
+    background-color: #9c9797;
+    width: 100%;
+    color: white;
+    border: 2px solid red;
+    margin-bottom: 10px; }
+    .proizvodi__container__filter--2--ul {
+      list-style: none; }
+  .proizvodi__container__filter--3 {
+    background-color: #9c9797;
+    width: 100%;
+    color: red;
+    border: 2px solid red;
+    margin-bottom: 10px; }
+    .proizvodi__container__filter--3--ul {
+      list-style: none; }
+  .proizvodi__container__filter--4 {
+    background-color: #9c9797;
+    width: 100%;
+    color: blue;
+    border: 2px solid red;
+    margin-bottom: 10px; }
+    .proizvodi__container__filter--4--ul {
+      list-style: none; }
 
 .proizvodi__container__proizvodi {
-  background-color: blue; }
+  background-color: white;
+  color: #323232;
+  margin-top: 90px; }
+
+.proizvodi__container__filter {
+  padding: 50px;
+  margin-top: 20px; }
+
+.h2--filter {
+  color: white;
+  font-weight: 100; }
+
+.icon-strelica {
+  width: 20px;
+  height: 20px;
+  margin-left: 50px;
+  fill: #005ba8; }
 
 .footer {
   padding: 0;

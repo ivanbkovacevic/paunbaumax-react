@@ -35,7 +35,7 @@
         height: 50px;
         top: 20%;
         left: 16%;
-        @include rotacijaKrsta1(60px,359deg);
+        @include rotacijaKrsta1(60px,360deg);
         z-index: 5;
 
     }
@@ -47,7 +47,7 @@
         height: 50px;
         top: 20%;
         left: 16%;
-        @include rotacijaKrsta2(60px,359deg);
+        @include rotacijaKrsta2(60px,360deg);
         z-index: 5;
 
     }
@@ -59,7 +59,7 @@
         height: 50px;
         top: 20%;
         left: 16%;
-        @include rotacijaKrsta3(60px,359deg);
+        @include rotacijaKrsta3(60px,360deg);
         z-index: 5;
 
     }
