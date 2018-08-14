@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
+import KontaktForm from './KontaktForm';
 
-const Kontakt = (props) => {
+class Kontakt extends Component {
+
+    state= {
+        fields:{}
+    };
+
+    handleSub=(fields)=>{
+     this.setState({fields});
+    }
+
+    render() {
     return (
         <div>
             <div className="kontakt-container">
@@ -14,13 +25,16 @@ const Kontakt = (props) => {
                         <svg className="icon-mail">
                                   <use xlinkHref="sprite.svg#icon-mail"></use>
                         </svg>
-                        salonkeramike@panbaumax.rs</div>
+                        <a href="mailto:salonkeramike@panbaumax.rs">salonkeramike@panbaumax.rs</a>
+                       </div>
                         
                         <div className="map-container-inform--telefon">
-                        <svg className="icon-phone">
-                                  <use xlinkHref="sprite.svg#icon-phone"></use>
-                        </svg>
-                        064 644 10 78  013 403 638</div>
+                            <svg className="icon-phone">
+                                    <use xlinkHref="sprite.svg#icon-phone"></use>
+                            </svg>
+                                <a href="tel:+381646441078">064 644 10 78</a><br></br>
+                                <a href="tel:+38113 403 638"> 013 403 638</a>
+                        </div>
                         
                         <div className="map-container-inform--adress">
                         <svg className="icon-home">
@@ -40,14 +54,8 @@ const Kontakt = (props) => {
 
                             <div className="linijaKontakt"></div>
                         </div>
-
-
-                        <form className="info__container__form">
-                            <input type="text" className="info__container__form--name" placeholder="Ime" />
-                            <input type="email" className="info__container__form--email" placeholder="Email" />
-                            <textarea rows="20" cols="50" className="info__container__form--poruka">Poruka</textarea>
-                            <Button className="button-detaljnije">POSALJI</Button>
-                        </form>
+                       <KontaktForm handleSub={fields=>this.handleSub(fields)} />
+                       <p>{JSON.stringify(this.state.fields,null,2)}</p>
                     </Col>
                     <Col lg={3}></Col>
                 </Row>
@@ -56,6 +64,7 @@ const Kontakt = (props) => {
         </div>
 
     );
+}
 };
 
 export default Kontakt;
