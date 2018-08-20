@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Checkbox, Button,FormGroup } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import gal1 from './img-gallery/dark-1.jpg';
 import gal2 from './img-gallery/darkPaint.jpg';
 import axios from 'axios';
@@ -7,12 +7,13 @@ import axios from 'axios';
 class Proizvodi extends Component {
 
   state = {
-  
     proizvodi: [],
-    categories:[],
-    proizvodiSelected:[],
-    categoriesSelected:[''],
-    categoriesArray:[]
+    // categories:[],
+    // proizvodiSelected:[],
+    // categoriesSelected:[''],
+    // categoriesArray:[]
+    allCategories:[],
+    subCategories:[]
   }
 
   componentDidMount() {
@@ -25,65 +26,42 @@ class Proizvodi extends Component {
 
       axios.get(`https://panbaumax.000webhostapp.com/wp-json/wp/v2/categories/?per_page=50`)
       .then(res => {
-        const categories = res.data;
-        this.setState({ categories });
-        console.log(categories); 
+        const JSONcategories = res.data;
+        this.setState({ JSONcategories });
+        console.log(JSONcategories); 
 
         var allCategories=[];
 
-        for(var prop in categories){
+        for(var prop in JSONcategories){
           var category = {
-                          id:categories[prop].id,
-                          name:categories[prop].name,
-                          parent:[categories[prop].parent],
-                          selected: false 
+                          id: JSONcategories[prop].id,
+                          name: JSONcategories[prop].name,
+                          parent: [JSONcategories[prop].parent],
+                          selected: false ,
+                          subCat: []
                         }
-                          for(var i in categories){
-                            if(category.parent[0]===categories[i].id){
-                              if(categories[i].parent !==0 && categories[i].parent !==6){
-                                category.parent.push(categories[i].parent)
+                          for(var i in JSONcategories){
+                            if(category.parent[0]===JSONcategories[i].id){
+                              if(JSONcategories[i].parent !==0 && JSONcategories[i].parent !==6){
+                                category.parent.push(JSONcategories[i].parent)
                               }
+                            }
+                          }
+
+                          for(var ii in JSONcategories){
+                            if(JSONcategories[ii].parent===category.id) {
+                              category.subCat.push(JSONcategories[ii].id);
                             }
                           }
           allCategories.push(category);
         }
       
         console.log(allCategories)
-      })
-   
+        this.setState({allCategories}) 
+          })
   }
-
-  filterCat=(naziv,index)=>{
-    let catIndexi= [...this.state.categoriesArray,index];
-    let i=0;
-    let proizvodiSelected =[];
-
-    for(var prop in catIndexi){
-       let sortIndex= catIndexi[prop];
-       console.log(sortIndex);
-      
-       proizvodiSelected = this.state.proizvodi.filter(kategorija => kategorija.categories[i] === catIndexi[0]);
-    }
-   
-    
-    let catNaziv = [...this.state.categoriesSelected, naziv];
-    this.setState({proizvodiSelected, categoriesSelected:catNaziv, categoriesArray:catIndexi});
-    console.log(proizvodiSelected);
-    console.log(this.state.categoriesSelected);
-    console.log(catIndexi);
-  }
-
-  // filterBeton=(naziv,index)=>{
-  //   let proizvodiSelected = this.state.proizvodi.filter(kategorija => kategorija.categories[0] === index);
-  //   let catNazivBeton =[...this.state.categoriesSelected, naziv];
-  //   this.setState({proizvodiSelected, categoriesSelected:catNazivBeton});
-  //   console.log(proizvodiSelected);
-  //   console.log(this.state.categoriesSelected);
-  // }
-  
-
   render() { 
-  
+    
     return (
       <section className="proizvodi">
         <div className="proizvodi-header">
@@ -94,24 +72,30 @@ class Proizvodi extends Component {
               <h2 className="h2--filter">Filteri</h2> <div className="proizvodi linija"></div>
               <div className="proizvodi__container__filter--1">
 
-               <p onClick={()=>this.filterCat('Drvo',13)}>DRVO</p>
-                <p onClick={()=>this.filterCat('Beton',35)}>BETON</p>
-                  <ul>
-                    {
-                   this.state.categoriesSelected.map(cat=>{
-                     return <li key={cat}>{cat}</li>
+              <ul>
+                   {
+                   this.state.allCategories.map(cat=>{      
+                     if(cat.parent[0]===6){
+                      return <li key={cat.id}>
+                      ime: {cat.name} id: {cat.id} parent: {cat.parent}  
+                      subCat: {cat.subCat.map(sub=>{
+                        console.log(cat.id);
+                        console.log(sub+'sub');
+                        if(sub===cat.id){
+
+                          return (<li>kurcina</li>)
+                        }
+                       })
+                      } </li>     
+                     }                                   
                    })
                  }
-                </ul>
+              </ul>
+
                 <ul className="proizvodi__container__filter--1--ul"><svg className="icon-strelica">
                   <use xlinkHref="sprite.svg#icon-chevron-thin-down"></use>
                 </svg>
-               
-                 {
-                   this.state.categories.map(cat=>{
-                     return <li key={cat.id}>{cat.id}--{cat.name}</li>
-                   })
-                 }
+                             
                 </ul>
               </div>
             </div>
@@ -123,67 +107,47 @@ class Proizvodi extends Component {
               <Row>
 
                 <Col lg={4}>
-                  <a href="#"><div className="proizvodi__box">
+                  <a href="/3"><div className="proizvodi__box">
                     <img className="proizvodi__img" src={gal1} alt={"pera"} />
                   </div> <span className="proizvodi__title">ACTION dark 160x120</span> </a>
                 </Col>
 
                 <Col lg={4}>
-                  <a href="#"><div className="proizvodi__box">
-                    <img className="proizvodi__img" src={gal1} alt={"pera"} />
-                  </div><span className="proizvodi__title">ACTION dark 160x120</span> </a>
-                </Col>
-
-
-                <Col lg={4}>
-                  <a href="#"><div className="proizvodi__box">
-                    <img className="proizvodi__img" src={gal2} alt={"pera"} />
-                  </div> <span className="proizvodi__title">ACTION dark 160x120</span> </a>
-                </Col>
-
-                <Col lg={4}>
-                  <a href="#"><div className="proizvodi__box">
-                    <img className="proizvodi__img" src={gal1} alt={"pera"} />
-                  </div> <span className="proizvodi__title">ACTION dark 160x120</span> </a>
-                </Col>
-
-                <Col lg={4}>
-                  <a href="#"><div className="proizvodi__box">
+                  <a href="/3"><div className="proizvodi__box">
                     <img className="proizvodi__img" src={gal1} alt={"pera"} />
                   </div><span className="proizvodi__title">ACTION dark 160x120</span> </a>
                 </Col>
 
 
                 <Col lg={4}>
-                  <a href="#"><div className="proizvodi__box">
+                  <a href="/3"><div className="proizvodi__box">
                     <img className="proizvodi__img" src={gal2} alt={"pera"} />
                   </div> <span className="proizvodi__title">ACTION dark 160x120</span> </a>
                 </Col>
 
+                <Col lg={4}>
+                  <a href="/3"><div className="proizvodi__box">
+                    <img className="proizvodi__img" src={gal1} alt={"pera"} />
+                  </div> <span className="proizvodi__title">ACTION dark 160x120</span> </a>
+                </Col>
+
+                <Col lg={4}>
+                  <a href="/3"><div className="proizvodi__box">
+                    <img className="proizvodi__img" src={gal1} alt={"pera"} />
+                  </div><span className="proizvodi__title">ACTION dark 160x120</span> </a>
+                </Col>
 
 
+                <Col lg={4}>
+                  <a href="/2"><div className="proizvodi__box">
+                    <img className="proizvodi__img" src={gal2} alt={"pera"} />
+                  </div> <span className="proizvodi__title">ACTION dark 160x120</span> </a>
+                </Col>
               </Row>
             </div>
           </Col>
 
           <Col lg={4}>
-          <ul>
-        {this.state.proizvodiSelected.map(proizvod =>
-        <li key={proizvod.id}>
-          {proizvod.title.rendered}-//-
-          {proizvod.categories}</li>
-        
-       )}
-      </ul>
-          -------------------------------------
-          <ul>
-        {this.state.proizvodi.map(proizvod =>
-        <li key={proizvod.id}>
-          {proizvod.title.rendered}-//-
-          {proizvod.categories}</li>  
-       )}
-      </ul>
-      ------------------------
     
      
           </Col>

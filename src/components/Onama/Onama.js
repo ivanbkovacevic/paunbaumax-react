@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid} from 'react-bootstrap';
+import { Row, Col} from 'react-bootstrap';
 import logo from './logo-gradjevina-white.png';
 import namestaj1 from './namestaj1.jpg';
 import namestaj2 from './namestaj2.png';

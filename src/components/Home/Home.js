@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 import Slider from '../Slider/Slider';
-import Brand_slider from '../Slider/Brand_slider';
+import BrandSlider from '../Slider/Brand_slider';
 import Onama from './home-about-us.png';
 import Marker from './hot-spot.png';
 import Hotspot from './hotspot-1.png';
@@ -67,19 +67,19 @@ class Home extends Component {
                                 <div className="home-categories__linkbox">
                                     <h1 className="home-categories-plocice--heading">Plocice</h1>
                                     <ul className="home-categories__linkbox--listL">
-                                        <li><a href="#">Podne</a></li>
-                                        <li><a href="#">Beton</a></li>
-                                        <li><a href="#">Drvo</a></li>
-                                        <li><a href="#">Kamen</a></li>
-                                        <li><a href="#">Mermer</a></li>
-                                        <li><a href="#">Mozaik</a></li>
+                                        <li><a href="/2">Podne</a></li>
+                                        <li><a href="/2">Beton</a></li>
+                                        <li><a href="/2">Drvo</a></li>
+                                        <li><a href="/2">Kamen</a></li>
+                                        <li><a href="/2">Mermer</a></li>
+                                        <li><a href="/2">Mozaik</a></li>
                                     </ul>
                                     <ul className="home-categories__linkbox--listR">
-                                        <li><a href="#">Zidne</a></li>
-                                        <li><a href="#">Mat</a></li>
-                                        <li><a href="#">Sjaj</a></li>
-                                        <li><a href="#">Dekor</a></li>
-                                        <li><a href="#">Mozaik</a></li>
+                                        <li><a href="//1">Zidne</a></li>
+                                        <li><a href="//1">Mat</a></li>
+                                        <li><a href="//1">Sjaj</a></li>
+                                        <li><a href="//1">Dekor</a></li>
+                                        <li><a href="//1">Mozaik</a></li>
                                     </ul>
 
                                 </div>
@@ -92,11 +92,11 @@ class Home extends Component {
                                 <div className="home-categories__linkbox">
                                     <h1 className="home-categories--sanitarija--heading">Sanitarija</h1>
                                     <ul className="home-categories__linkbox--sanitarijaList">
-                                        <li><a href="#">Lavaboi</a></li>
-                                        <li><a href="#">Wc solje</a></li>
-                                        <li><a href="#">Kade</a></li>
-                                        <li><a href="#">Tus kabine</a></li>
-                                        <li><a href="#">Kupatilski namestaj i ogledala</a></li>
+                                        <li><a href="/1">Lavaboi</a></li>
+                                        <li><a href="/2">Wc solje</a></li>
+                                        <li><a href="/3">Kade</a></li>
+                                        <li><a href="/4">Tus kabine</a></li>
+                                        <li><a href="/5">Kupatilski namestaj i ogledala</a></li>
 
                                     </ul>
                                 </div>
@@ -108,11 +108,11 @@ class Home extends Component {
                                 <div className="home-categories__linkbox">
                                     <h1 className="home-categories--slavine--slavine__heading">Slavine</h1>
                                     <ul className="home-categories__linkbox--slavineList">
-                                        <li><a href="#">Lavabo</a></li>
-                                        <li><a href="#">Kada</a></li>
-                                        <li><a href="#">Bide</a></li>
-                                        <li><a href="#">Ugradne</a></li>
-                                        <li><a href="#">Sudopera</a></li>
+                                        <li><a href="//1">Lavabo</a></li>
+                                        <li><a href="//2">Kada</a></li>
+                                        <li><a href="//3">Bide</a></li>
+                                        <li><a href="//4">Ugradne</a></li>
+                                        <li><a href="//5">Sudopera</a></li>
 
                                     </ul>
                                 </div>
@@ -124,11 +124,11 @@ class Home extends Component {
                                 <div className="home-categories__linkbox">
                                     <h1 className="home-categories--ostalo--heading">Ostalo</h1>
                                     <ul className="home-categories__linkbox--ostaloList">
-                                        <li><a href="#">Galanterija</a></li>
-                                        <li><a href="#">Kanalice i resetke</a></li>
-                                        <li><a href="#">Susaci</a></li>
-                                        <li><a href="#">Bojleri</a></li>
-                                        <li><a href="#">Lepkovi i hidroizolacija</a></li>
+                                        <li><a href="///1">Galanterija</a></li>
+                                        <li><a href="///2">Kanalice i resetke</a></li>
+                                        <li><a href="///3">Susaci</a></li>
+                                        <li><a href="///4">Bojleri</a></li>
+                                        <li><a href="///5">Lepkovi i hidroizolacija</a></li>
 
                                     </ul>
                                 </div>
@@ -187,7 +187,7 @@ class Home extends Component {
                 </Grid>
                 <div className="brand__slider--container">
                     <div className="brand__slider">
-                    <Brand_slider/>
+                    <BrandSlider/>
                     </div>
                 </div>
             </div>

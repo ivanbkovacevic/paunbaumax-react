@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, NavItem, Navbar, Image, Modal, Button } from 'react-bootstrap';
+import { Nav, NavItem, Navbar,  Modal, Button } from 'react-bootstrap';
 
 class Navigation extends Component {
 
