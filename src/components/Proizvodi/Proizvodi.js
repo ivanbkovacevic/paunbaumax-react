@@ -8,13 +8,10 @@ import ProizvodCategory from './ProizvodCategory';
 class Proizvodi extends Component {
 
   state = {
-    proizvodi: [],
-    // categories:[],
-    // proizvodiSelected:[],
-    // categoriesSelected:[''],
-    // categoriesArray:[]
+    proizvodi:[],
     allCategories:[],
-    subCategories:[]
+    subCatShow:[],
+    kljuc:true
   }
 
   componentDidMount() {
@@ -40,6 +37,8 @@ class Proizvodi extends Component {
                           parent: [JSONcategories[prop].parent],
                           selected: false,
                           subCat: []
+                         
+                         
                         }
 
                           for(var i in JSONcategories){
@@ -62,6 +61,32 @@ class Proizvodi extends Component {
         this.setState({allCategories}) 
           })
   }
+
+  showSub=(id)=>{
+    let idSelected = id;
+    let {subCatShow}=this.state;
+    console.log(id);
+    let allCategories=this.state.allCategories;
+    for(var prop in allCategories){
+        if(allCategories[prop].id===idSelected){
+         allCategories[prop].selected = true;
+        subCatShow.push(idSelected);    
+        }
+    }
+     this.setState({allCategories,subCatShow});
+     console.log(this.state.subCatShow);
+
+      let subCatShowDel=this.state.subCatShow;
+       if(subCatShowDel[1]===idSelected){
+         subCatShowDel.splice(0,1);
+         this.setState({subCatShow:subCatShowDel});
+         console.log(this.state.subCatShow)
+       }
+
+      
+     
+  }
+
   render() { 
     
     return (
@@ -73,23 +98,38 @@ class Proizvodi extends Component {
             <div className="proizvodi__container__filter">
               <h2 className="h2--filter">Filteri</h2> <div className="proizvodi linija"></div>
               <div className="proizvodi__container__filter--1">
-
               <ul>
                    {
                    this.state.allCategories.map(cat=>{      
                      if(cat.id===2){
-                      return <ProizvodCategory 
+                      return <ProizvodCategory
+                      showSub={()=>this.showSub(cat.id)} 
                       key={cat.id}
                       catIme={cat.name} />     
                      }                                   
                    })
                  }
               </ul>
-
+                   
                  <ul>
+            
+                   {
+                      this.state.allCategories.map(cat=>{ 
+                  
+                        if(cat.parent[0]===2 && this.state.subCatShow[0]===cat.parent[0]){            
+                            return <ProizvodCategory 
+                            key={cat.id}
+                            catIme={cat.name} />            
+                          }                                              
+                      })         
+                 }
+                
+              </ul>
+
+               <ul>
                    {
                    this.state.allCategories.map(cat=>{      
-                     if(cat.parent[0]===2){
+                     if(cat.parent[0]===11){
                       return <ProizvodCategory 
                       key={cat.id}
                       catIme={cat.name} />   
@@ -97,32 +137,21 @@ class Proizvodi extends Component {
                    })
                  }
               </ul>
-
-               <ul>
-                   {
-                   this.state.allCategories.map(cat=>{      
-                     if( cat.parent[0]===11){
-                      return <ProizvodCategory 
-                      key={cat.id}
-                      catIme={cat.name} />   
-                     }                                   
-                   })
-                 }
-              </ul>
-
-               <ul>
-                   {
-                   this.state.allCategories.map(cat=>{      
-                     if( cat.parent[0]===12){
-                      return <li key={cat.id}>
-                         {cat.name} 
-                       </li>     
-                     }                                   
-                   })
-                 }
-              </ul>
-
-
+                
+                  <ul>
+                  {
+                  this.state.allCategories.map(cat=>{      
+                    if( cat.parent[0]===12){
+                      if(cat.selected ===true){
+                        return <li key={cat.id}>
+                        {cat.name} - {cat.selected}
+                      </li>     
+                    }     }                              
+                  })
+                
+                }
+             </ul>
+               
 
                 <ul className="proizvodi__container__filter--1--ul"><svg className="icon-strelica">
                   <use xlinkHref="sprite.svg#icon-chevron-thin-down"></use>

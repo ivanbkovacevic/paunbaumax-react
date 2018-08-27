@@ -4,7 +4,7 @@ class ProizvodCategory extends Component {
     render() {
         return (
             <div>
-                <li key={this.props.key}>{this.props.catIme} --</li>
+                <li onClick={this.props.showSub} key={this.props.key}>{this.props.catIme}  --</li>
             </div>
         );
     }
