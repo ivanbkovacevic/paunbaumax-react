@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import gal1 from './img-gallery/dark-1.jpg';
 import gal2 from './img-gallery/darkPaint.jpg';
 import axios from 'axios';
+import ProizvodCategory from './ProizvodCategory';
 
 class Proizvodi extends Component {
 
@@ -37,9 +38,10 @@ class Proizvodi extends Component {
                           id: JSONcategories[prop].id,
                           name: JSONcategories[prop].name,
                           parent: [JSONcategories[prop].parent],
-                          selected: false ,
+                          selected: false,
                           subCat: []
                         }
+
                           for(var i in JSONcategories){
                             if(category.parent[0]===JSONcategories[i].id){
                               if(JSONcategories[i].parent !==0 && JSONcategories[i].parent !==6){
@@ -75,22 +77,52 @@ class Proizvodi extends Component {
               <ul>
                    {
                    this.state.allCategories.map(cat=>{      
-                     if(cat.parent[0]===6){
-                      return <li key={cat.id}>
-                      ime: {cat.name} id: {cat.id} parent: {cat.parent}  
-                      subCat: {cat.subCat.map(sub=>{
-                        console.log(cat.id);
-                        console.log(sub+'sub');
-                        if(sub===cat.id){
-
-                          return (<li>kurcina</li>)
-                        }
-                       })
-                      } </li>     
+                     if(cat.id===2){
+                      return <ProizvodCategory 
+                      key={cat.id}
+                      catIme={cat.name} />     
                      }                                   
                    })
                  }
               </ul>
+
+                 <ul>
+                   {
+                   this.state.allCategories.map(cat=>{      
+                     if(cat.parent[0]===2){
+                      return <ProizvodCategory 
+                      key={cat.id}
+                      catIme={cat.name} />   
+                     }                                   
+                   })
+                 }
+              </ul>
+
+               <ul>
+                   {
+                   this.state.allCategories.map(cat=>{      
+                     if( cat.parent[0]===11){
+                      return <ProizvodCategory 
+                      key={cat.id}
+                      catIme={cat.name} />   
+                     }                                   
+                   })
+                 }
+              </ul>
+
+               <ul>
+                   {
+                   this.state.allCategories.map(cat=>{      
+                     if( cat.parent[0]===12){
+                      return <li key={cat.id}>
+                         {cat.name} 
+                       </li>     
+                     }                                   
+                   })
+                 }
+              </ul>
+
+
 
                 <ul className="proizvodi__container__filter--1--ul"><svg className="icon-strelica">
                   <use xlinkHref="sprite.svg#icon-chevron-thin-down"></use>
