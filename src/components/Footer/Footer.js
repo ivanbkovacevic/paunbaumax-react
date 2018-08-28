@@ -3,6 +3,8 @@ import { Row, Col } from 'react-bootstrap';
 import logo from './logo-gradjevina-whiteF.png';
 
 class Footer extends Component {
+
+  
   render() {
     return (
       <div className="footer__row">
