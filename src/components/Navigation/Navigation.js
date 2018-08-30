@@ -52,6 +52,11 @@ class Navigation extends Component {
                         </Link>
                             </NavItem>
                             <NavItem>
+                                <Link to="/mojbroj">
+                                    MojBroj
+                        </Link>
+                            </NavItem>
+                            <NavItem>
                               <i onClick={this.handleShow} className="fas fa-search fa-lg"></i>
                             </NavItem>
                         </Nav>
