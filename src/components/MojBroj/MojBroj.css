@@ -1,0 +1,40 @@
+.value--show {
+  border: 1px solid red;
+  display: inline-block;
+}
+
+.value--hide {
+    display: none;
+  }
+
+
+  .button-detaljnije{
+    color: white;
+    background-color: rgb(5, 100, 5);
+    border: 1px solid white;
+    border-radius: 0%;
+    font-weight: 500;
+    transition: all 0.5s;
+    width: 200;
+    height: 50px;
+    padding: 5px 35px;
+    margin-top: 30px;
+}
+.button-detaljnije:hover {
+    background-color: rgba(5, 100, 5, 0.493);
+    color: white;
+}
+
+.button-disabled {
+    opacity: 0.4;
+    color: white;
+    background-color: rgb(5, 100, 5);
+    border: 1px solid white;
+    border-radius: 0%;
+    font-weight: 500;
+    transition: all 0.5s;
+    width: 200;
+    height: 50px;
+    padding: 5px 35px;
+    margin-top: 30px;
+    }
