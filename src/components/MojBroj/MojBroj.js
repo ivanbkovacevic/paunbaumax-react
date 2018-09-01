@@ -11,19 +11,16 @@ class MojBroj extends Component {
     target1d: 4,
     target101520: 15,
     target255075100: 100,
+
     dupliNumMesasage: '',
     dupliNumInRowMesasage: '',
-    playerInput:
-    {
-      input: null,
-      inputArr: [],
-      displayInputOperands: [],
-      displayInputAll: [],
-      calculation: null,
-      NumOperSwitch: true,
-      calculation: null,
-    },
-   
+
+    value: '',
+    displayValue: '',
+    inputArr: [],
+    numberState: true,
+    operandState: true,
+
     score: {
       win: 0,
       loss: 0,
@@ -47,7 +44,7 @@ class MojBroj extends Component {
     let target1b = Math.floor(Math.random() * (max - min + 1)) + min;
     let target1c = Math.floor(Math.random() * (max - min + 1)) + min;
     let target1d = Math.floor(Math.random() * (max - min + 1)) + min;
-    let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1)) + min1;
+    let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
     this.setState({ targetNumber, target1a, target1b, target1c, target1d })
   }
 
@@ -126,205 +123,156 @@ class MojBroj extends Component {
     let solutionFinal = target1a * target1b;
     this.setState({ firstCalc, secondCalc });
   }
+
   ///////////////////////DUGMAD I MANUELNO RACUNJANJE///////////////////////////////
-  AddNumber = (digit) => {
- 
-    let NumOperSwitch = this.state.playerInput.NumOperSwitch;
-    let inputArr = this.state.playerInput.inputArr.slice();
-    let displayInputOperands = this.state.playerInput.displayInputOperands.slice();
-    let displayInputAll = this.state.playerInput.displayInputAll.slice();
-    let dupliNum = inputArr.indexOf(digit);
-    let calculation = this.state.playerInput.calculation;
-    console.log(inputArr + '--------------------');
-    console.log(dupliNum + ' dupliNum')
-    console.log(calculation + ' calcAddNumb')
-    console.log(NumOperSwitch + ' NumOperSwitch')
 
-    if (NumOperSwitch) {
-      if (dupliNum === -1) {
-        inputArr.push(digit);
-        displayInputAll.push(digit);
-        calculation+=digit,
+  PerformNumberInput = (number,sTrue,sFalse) => {
+
+    let { value } = this.state;
+    let inputArr = this.state.inputArr.slice();
+    let dupliNum = inputArr.indexOf(number);
+    let { displayValue } = this.state;
+    let { dupliNumMesasage } = this.state;
+    console.log(inputArr + 'INPUT ARRAY');
+    console.log( this.state.numberState + '  numberState')
+
+    dupliNum=== -1 && this.state.numberState===true ? inputArr.push(number):null;
+    dupliNum=== -1 && this.state.numberState===true ? 
+
         this.setState({
-          playerInput:
-          {
-            input: digit,
-            inputArr: inputArr,
-            displayInputOperands: displayInputOperands,
-            displayInputAll: displayInputAll,
-            calculation,
-            NumOperSwitch: false
-          },
-          dupliNumMesasage: 'ok je',
-          dupliNumInRowMesasage:''
-        });
-      } else {
-        calculation+=digit,
-        this.setState({
-          playerInput:
-          {
-            input: digit,
-            inputArr: inputArr,
-            displayInputOperands: displayInputOperands,
-            displayInputAll: displayInputAll,
-           calculation,
-            NumOperSwitch: true
-          },
-          dupliNumInRowMesasage:'Ne moze isti broj 2x '
-
-        });
-       
-      }
-
-    } else {
-      
-      this.setState({
-        playerInput:
-        {
-          input: digit,
           inputArr: inputArr,
-          displayInputOperands: displayInputOperands,
-          displayInputAll: displayInputAll,
-          NumOperSwitch: false,
-          calculation
-        },
-        dupliNumMesasage:'Morate operaciju da ukucate pa tek onda naredni broj '
-        
-      });
-    }
-    console.log(this.state.dupliNumMesasage+' dupliNUMmessage')
-    console.log(calculation+' CALCULATION  NUM')
-   
-  }
+          displayValue:  displayValue + String(number),
+          value: value + String(number),
+          numberState: false,
+          operandState:true,
+          
+        })
+        :null;
 
-  AddOperation = (operand) => {
-    let calculation = this.state.playerInput.calculation;
-    let input = this.state.input;
-    let inputArr = this.state.playerInput.inputArr.slice();
-    let displayInputOperands = this.state.playerInput.displayInputOperands.slice();
-    let displayInputAll = this.state.playerInput.displayInputAll.slice();
+        dupliNum !== -1  ? 
+        this.setState({
+          dupliNumMesasage: 'Ne moze isti broj dva puta',
+          dupliNumInRowMesasage: ''
+        }) : this.setState({
+          dupliNumMesasage: '',
+          dupliNumInRowMesasage: ''
+        })
 
+        this.state.numberState===false  ? 
+        this.setState({
+          dupliNumMesasage: '',
+          dupliNumInRowMesasage: 'Ne mogu dva broja zaredom'
+        }) : null
 
-    calculation += operand,
-    displayInputOperands.push(operand);
-    displayInputAll.push(operand);
-    this.setState({
-      playerInput:
-      {
-        input: operand,
-        inputArr: inputArr,
-        displayInputOperands: displayInputOperands,
-        displayInputAll: displayInputAll,
-        calculation,
-        NumOperSwitch: true
+    console.log(this.state.dupliNumMesasage + ' dupliNUMmessage')
       }
-    });
-
-    console.log(displayInputOperands);
-    console.log(calculation+' CALCULATION  OPERAND')
-  }
-
-  CalculationTest=(input)=>{
-    let calculationFinal;
-    calculationFinal
-    switch (input) {
-      case '+':
-        calculationFinal= (calculationFinal+input);
-          break;
-      case '-':
-        calculationFinal= (calculationFinal-input);
-          break;
-      case '*':
-        calculationFinal= (calculationFinal*input);
-          break;
-  }
-  console.log(calculationFinal)
-  this.setState({
-    playerInput:
-    {
-      input: input,
       
-      calculation:calculationFinal,
-      NumOperSwitch: true
-    }
-  });
-}
+      PerformOperandInput=(operand,sTrue,sFalse)=>{
+        let {numberState} = this.state;
+        let { value } = this.state;
+        let inputArr = this.state.inputArr.slice();
+        let dupliNum = inputArr.indexOf(operand);
+        let { displayValue } = this.state;
+        let { dupliNumMesasage } = this.state;
+        console.log(inputArr + 'INPUT ARRAY');
+        console.log(dupliNum  + ' dupliNum')
+    
+         this.state.operandState===true ? 
+          this.setState({
+            displayValue:  displayValue + String(operand)  ,
+            value: value + String(operand),
+            numberState: true,
+            operandState:false,
+            dupliNumMesasage: '',
+            dupliNumInRowMesasage: ''
+          })
+           :null;
+        }
+  
+    // let { prevValue } = this.state;
+    // let { operandState } = this.state;
+
+    // let nextValue = operand;
+
+    // const operations = {
+    //   '+': (prevValue, nextValue) => { prevValue + nextValue },
+    //   '-': (prevValue, nextValue) => { prevValue - nextValue },
+    //   '*': (prevValue, nextValue) => { prevValue * nextValue },
+    //   '/': (prevValue, nextValue) => { prevValue / nextValue },
+    //   '(': (prevValue, nextValue) => { nextValue },
+    //   ')': (prevValue, nextValue) => { nextValue },
+    //   '=': (prevValue, nextValue) => { nextValue }
+    // }
+    // // if(value==null){
+    //   this.setState({
+    //     value: value+String(operand),
+    //   });
+    // } else if( operandState){
+    //   let currentValue = value || 0;
+    //  // let computedValue = operations[operand](currentValue,nextValue)
+    //   this.setState({
+    //   //  value: computedValue,
+
+    //   });
+    // }
+
+    // console.log(prevValue + ' prevVALUE')
+    // console.log(nextValue + ' nextVALUE')
+    // console.log(operandState + ' operandState')
+    // console.log(numSwitch + ' NUMSWITCH')
+    // let calculationFinal=operations[digit](prevValue,nextValue);
+
+  
+
 
   Calculate = () => {
-    let calculation = this.state.playerInput.displayInputAll.slice();
-    let calculationFinal;
-    for(let i in calculation){
-      if(isNaN(Number(calculation[i]))){
-        console.log(calculation[i])
-
-      }else{
-
-      }
-     
-    }
-    // let calculationExtract = calculation.slice();
-    //   calculationExtract= calculationExtract.splice(0,1);
-    //  let calculationFull='';
-    //   calculationFull+=calculationExtract; 
-
-    //  console.log(calculationExtract+'T');
-    //  console.log(calculationFull+'T');
-
-    // calculation=calculation.toString();
-    //  calculation=calculation.replace(/,/g, " ");
-    //  calculation=eval(calculation);
-         // let calculation = this.state.playerInput.calculation;
-    //calculation +='';
-    console.log(typeof(calculation) +calculation +' calculation')
+    let { value } = this.state;
+    console.log(value + ' VALUE')
+    value = eval(value);
     let win = this.state.score.win;
     let loss = this.state.score.loss;
     let message = this.state.score.message;
-    if (this.state.targetNumber == calculation) {
+    if (this.state.targetNumber === value) {
 
       this.setState({
+        value,
         score: {
           win: win + 1,
           loss: loss,
           message: message + 'BRAVO! TACNO RESENJE'
-        }, playerInput: {
-         
         }
       });
-      console.log('BRAVO');
+
     } else {
       this.setState({
+        value,
         score: {
           win: win,
           loss: loss + 1,
           message: message + ' :( NIJE TACNO RESENJE'
-        }, playerInput: {
-         
         }
       });
-      console.log('NIJE TACNO')
     }
-    console.log(calculation);
+
     console.log(this.state.score.win);
     console.log(this.state.score.loss);
-    this.setState({ calculation })
+    this.setState({ value })
   }
 
   ClearAll = () => {
-    let { targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100, calculation } = this.state;
-    targetNumber = target1a = target1b = target1c = target1d = target101520 = target255075100 = calculation = 0;
+    let { targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100, value, displayValue } = this.state;
+    targetNumber = target1a = target1b = target1c = target1d = target101520 = target255075100 = value = 0;
+    displayValue = '';
+    value = '';
     let win = this.state.score.win;
     let loss = this.state.score.loss;
     console.log(targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100)
     this.setState({
-      playerInput:
-      {
-        input: null,
-        inputArr: [],
-        displayInputOperands: [],
-        displayInputAll: [],
-        NumOperSwitch:true,
-        calculation:null
-      }, targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100, calculation
+
+      inputArr: [],
+      targetNumber, target1a, target1b, target1c, target1d, target101520,
+       target255075100, value, displayValue, numberState:true, operandState:true,dupliNumMesasage: '',
+       dupliNumInRowMesasage: 'Ne mogu dva broja zaredom'
       , score: {
         win: win,
         loss: loss,
@@ -333,6 +281,15 @@ class MojBroj extends Component {
     });
   }
 
+  DeleteInputs=()=>{
+        let { displayValue}=this.state;
+          let displayValueLength = displayValue.length;
+          displayValue=  displayValue.slice(0,displayValueLength-1);
+        this.setState({
+             displayValue: displayValue
+        });
+        console.log(displayValue+' displayvalue')
+  }
 
   render() {
     let { targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100 } = this.state;
@@ -342,6 +299,7 @@ class MojBroj extends Component {
         <p>f</p>
         <p>f</p>
         <Score win={this.state.score.win} loss={this.state.score.loss} message={this.state.score.message} />
+        <div><per>{JSON.stringify(this.state,null,2)}</per></div>
 
         <button className='button-detaljnije' onClick={this.generateTarget}>IZABERI BROJ</button>
         <button className='button-detaljnije' onClick={this.generateSolution}>POGLEDAJ  RESENJE</button>
@@ -350,27 +308,29 @@ class MojBroj extends Component {
           [{this.state.target1c}] [{this.state.target1d}] --- [{this.state.target101520}] --- [{this.state.target255075100}]
           </h3>
 
-        <button className='button-detaljnije Broj' onClick={() => this.AddNumber(target1a)}>{target1a}</button>
-        <button className='button-detaljnije' value={target1b} onClick={() => this.AddNumber(target1b)}>{target1b}</button>
-        <button className='button-detaljnije' value={target1c} onClick={() => this.AddNumber(target1c)}>{target1c}</button>
-        <button className='button-detaljnije' value={target1d} onClick={() => this.AddNumber(target1d)}>{target1d}</button>
-        <button className='button-detaljnije' value={target101520} onClick={() => this.AddNumber(target101520)}>{target101520}</button>
-        <button className='button-detaljnije' value={target255075100} onClick={() => this.AddNumber(target255075100)}>{target255075100}</button>
+        <button className='button-detaljnije Broj' onClick={() => this.PerformNumberInput(target1a,true,false)}>{target1a}</button>
+        <button className='button-detaljnije' value={target1b} onClick={() => this.PerformNumberInput(target1b,true,false)}>{target1b}</button>
+        <button className='button-detaljnije' value={target1c} onClick={() => this.PerformNumberInput(target1c,true,false)}>{target1c}</button>
+        <button className='button-detaljnije' value={target1d} onClick={() => this.PerformNumberInput(target1d,true,false)}>{target1d}</button>
+        <button className='button-detaljnije' value={target101520} onClick={() => this.PerformNumberInput(target101520,true,false)}>{target101520}</button>
+        <button className='button-detaljnije' value={target255075100} onClick={() => this.PerformNumberInput(target255075100,true,false)}>{target255075100}</button>
         <br></br>
-        <button className='button-detaljnije' value={'+'} onClick={() => this.AddOperation('+')}>+</button>
-        <button className='button-detaljnije' value={'-'} onClick={() => this.AddOperation('-')}>-</button>
-        <button className='button-detaljnije' value={'*'} onClick={() => this.AddOperation('*')}>*</button>
-        <button className='button-detaljnije' value={'/'} onClick={() => this.AddOperation('/')}>/</button>
-        <button className='button-detaljnije' value={'('} onClick={() => this.AddOperation('(')}>(</button>
-        <button className='button-detaljnije' value={')'} onClick={() => this.AddOperation(')')}>)</button>
+        <button className='button-detaljnije' value={'+'} onClick={() => this.PerformOperandInput('+',true,false)}>+</button>
+        <button className='button-detaljnije' value={'-'} onClick={() => this.PerformOperandInput('-',true,false)}>-</button>
+        <button className='button-detaljnije' value={'*'} onClick={() => this.PerformOperandInput('*',true,false)}>*</button>
+        <button className='button-detaljnije' value={'/'} onClick={() => this.PerformOperandInput('/',true,false)}>/</button>
+        <button className='button-detaljnije' value={'('} onClick={() => this.PerformOperandInput('(',true,false)}>(</button>
+        <button className='button-detaljnije' value={')'} onClick={() => this.PerformOperandInput(')',true,false)}>)</button>
         <div>
+
           <h2>PLAYERS INPUT</h2>
-          <h2>KLIKNULI STE NA: {this.state.playerInput.input} {this.state.dupliNumMesasage} {this.state.dupliNumInRowMesasage}</h2>
-          <h2>{this.state.playerInput.displayInputAll}</h2>
-          <h2>VASE RESENJE JE: {this.state.calculation}</h2>
+          <button className='button-detaljnije' onClick={this.DeleteInputs}>OBRISI</button>
+          <h2>{this.state.dupliNumMesasage} {this.state.dupliNumInRowMesasage}</h2>
+          <h2>{this.state.displayValue} -DISPLAY VALUE</h2>
+          <h2>VASE RESENJE JE: {this.state.value}-VALUE</h2>
           <button className='button-detaljnije' onClick={this.Calculate}>IZRACUNAJ</button>
           <button className='button-detaljnije' onClick={this.ClearAll}>RESETUJ SVE</button>
-          <button className='button-detaljnije' onClick={this.DisplayAll}>PRIKAZI SVE</button>
+         
         </div>
         {/* <div className='resenje'><h3>resenje je: --{this.state.solutionQuick}-- {this.state.text}</h3>
           <h3>{this.state.solutionFinal}</h3>
