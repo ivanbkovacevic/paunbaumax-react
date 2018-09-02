@@ -12,30 +12,36 @@ class MojBroj extends Component {
     target1d: 4,
     target101520: 15,
     target255075100: 100,
+    targetArr:[],
+    invalidNumber:null,
+    InvalidNumberClass:'invalidNumberClass-disabled',
+    lastInput:' ',
 
     dupliNumMesasage: '',
     dupliNumInRowMesasage: '',
-    operandMessage:'',
+    operandMessage: '',
 
     value: '',
-    showValue:'value--hide',
-    buttonIndexArr:[],
+    showValue: 'value--hide',
+    buttonIndexArr: [],
+    buttonLast: null,
 
-    disabledButt1:false,
-    disabledButt2:false,
-    disabledButt3:false,
-    disabledButt4:false,
-    disabledButt5:false,
-    disabledButt6:false,
-    disabledButtClass1:'button-detaljnije',
-    disabledButtClass2:'button-detaljnije',
-    disabledButtClass3:'button-detaljnije',
-    disabledButtClass4:'button-detaljnije',
-    disabledButtClass5:'button-detaljnije',
-    disabledButtClass6:'button-detaljnije',
+    disabled:false,
+    disabledButt1: false,
+    disabledButt2: false,
+    disabledButt3: false,
+    disabledButt4: false,
+    disabledButt5: false,
+    disabledButt6: false,
+    ButtClass1: 'button-enabled',
+    ButtClass2: 'button-enabled',
+    ButtClass3: 'button-enabled',
+    ButtClass4: 'button-enabled',
+    ButtClass5: 'button-enabled',
+    ButtClass6: 'button-enabled',
 
     displayValue: '',
-    
+
     numberState: true,
     operandState: true,
 
@@ -64,6 +70,7 @@ class MojBroj extends Component {
     let target1d = Math.floor(Math.random() * (max - min + 1)) + min;
     let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
     this.setState({ targetNumber, target1a, target1b, target1c, target1d })
+  
   }
 
 
@@ -85,8 +92,8 @@ class MojBroj extends Component {
     this.generateTargetsingl();
     this.generateTarget15();
     this.generateTarget100();
-    //  this.findSolutionQuick();
   }
+
 
   generateSolution = () => {
     this.findSolutionFull();
@@ -143,87 +150,65 @@ class MojBroj extends Component {
   }
 
   ///////////////////////DUGMAD I MANUELNO RACUNJANJE///////////////////////////////
- 
-  PerformNumberInput = (number,buttonIn,sFalse) => {
-     let buttonIndexArr=this.state.buttonIndexArr.slice();
-     let buttonIndex =buttonIn;
-     buttonIndexArr.push(buttonIndex);
-     this.setState({buttonIndexArr});
-  buttonIndex===1 ? this.setState({disabledButt1:true}):null;
-  buttonIndex===2 ? this.setState({disabledButt2:true}):null;
-  buttonIndex===3 ? this.setState({disabledButt3:true}):null;
-  buttonIndex===4 ? this.setState({disabledButt4:true}):null;
-  buttonIndex===5 ? this.setState({disabledButt5:true}):null;
-  buttonIndex===6 ? this.setState({disabledButt6:true}):null;
 
-  buttonIndex===1 ? this.setState({disabledButtClass1:'button-disabled'}):null;
-  buttonIndex===2 ? this.setState({disabledButtClass2:'button-disabled'}):null;
-  buttonIndex===3 ? this.setState({disabledButtClass3:'button-disabled'}):null;
-  buttonIndex===4 ? this.setState({disabledButtClass4:'button-disabled'}):null;
-  buttonIndex===5 ? this.setState({disabledButtClass5:'button-disabled'}):null;
-  buttonIndex===6 ? this.setState({disabledButtClass6:'button-disabled'}):null;
-
-
-    let { value } = this.state;
-    let { displayValue } = this.state;
-    let { dupliNumMesasage } = this.state;
+  PerformNumberInput = (number, buttonIn, sFalse) => {
+    let { targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100, value, displayValue,numberState, dupliNumMesasage } = this.state;
+    let {targetArr}=this.state;
    
-    this.state.numberState===true ? 
-        this.setState({     
-          displayValue:  displayValue + String(number),
-          value: value + String(number),
-          numberState: false,
-          operandState:true,
-          dupliNumMesasage: '',
-          dupliNumInRowMesasage: '',
-          operandMessage:'',
-
-        })
-        :
-        this.setState({
-          operandState:true,
-          dupliNumInRowMesasage: 'Ne mogu dva broja zaredom',
-        })
-        ;
-
-    console.log(this.state.dupliNumMesasage + ' dupliNUMmessage')
-      }
-      /////////////////////////////////////////////////////////////////
-      PerformOperandInput=(operand,buttonIn,sFalse)=>{
-
-        let buttonIndexArr=this.state.buttonIndexArr.slice();
-        let buttonIndex =buttonIn;
-        buttonIndexArr.push(buttonIndex);
-        this.setState({buttonIndexArr});
-
-        let {numberState} = this.state;
-        let { value } = this.state;
-        let { displayValue } = this.state;
-        let { dupliNumMesasage } = this.state;
-
-         this.state.operandState===true ? 
-          this.setState({
-            displayValue:  displayValue + String(operand)  ,
-            value: value + String(operand),
-            numberState: true,
-            operandState:false,
-            dupliNumMesasage: '',
-            dupliNumInRowMesasage: '',
-          })
-           :   this.setState({
-           
-            operandMessage:'Ne mogu dve operacije da stoje jedna pored druge',
-            dupliNumMesasage: '',
-            dupliNumInRowMesasage: ''
-           
-          });
-
-        }
+    console.log(targetArr+' targetARRR')
   
+    if(numberState===true){ 
+      targetArr=targetArr.slice();
+      targetArr.push(number);
+      this.setState({targetArr});
+    
+    target1a === number ? this.setState({ disabledButt1: true }) : null;
+    target1b === number ? this.setState({ disabledButt2: true }) : null;
+    target1c === number ? this.setState({ disabledButt3: true }) : null;
+    target1d === number ? this.setState({ disabledButt4: true }) : null;
+    target101520 === number ? this.setState({ disabledButt5: true }) : null;
+    target255075100 === number ? this.setState({ disabledButt6: true }) : null;
+
+    target1a === number ? this.setState({ ButtClass1: 'button-disabled' }) : null;
+    target1b === number ? this.setState({ ButtClass2: 'button-disabled' }) : null;
+    target1c === number ? this.setState({ ButtClass3: 'button-disabled' }) : null;
+    target1d === number ? this.setState({ ButtClass4: 'button-disabled' }) : null;
+    target101520 === number ? this.setState({ ButtClass5: 'button-disabled' }) : null;
+    target255075100 === number ? this.setState({ ButtClass6: 'button-disabled' }) : null;
+    this.setState({
+      displayValue: displayValue + String(number),
+      value: value + String(number),
+      numberState: false,
+      dupliNumMesasage: '',
+      dupliNumInRowMesasage: '',
+      operandMessage: '',
+       })
+    }else{
+      this.setState({
+        dupliNumInRowMesasage: 'Ne mogu dva broja zaredom',
+      })
+      ;
+    }
+    
+     
+  }
+  ///////////////////////////////////////////////////////////////
+  PerformOperandInput = (operand, buttonIn, sFalse) => {
+    let { targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100, value, displayValue,numberState, dupliNumMesasage } = this.state;
+    
+      this.setState({
+        displayValue: displayValue + String(operand),
+        value: value + String(operand),
+        numberState: true,
+      })
+  }
+
   Calculate = () => {
     let { value } = this.state;
-    console.log(value + ' VALUE');
-    value = eval(value);
+    let valueIsNumber = value[value.length - 1];
+    valueIsNumber = Number(valueIsNumber);
+
+    Number.isInteger(valueIsNumber) ? value = eval(value) : value = 'Niste dobro uneli operaciju';
     let win = this.state.score.win;
     let loss = this.state.score.loss;
     let message = this.state.score.message;
@@ -241,7 +226,7 @@ class MojBroj extends Component {
     } else {
       this.setState({
         value,
-        showValue:'value--show',
+        showValue: 'value--show',
         score: {
           win: win,
           loss: loss + 1,
@@ -249,9 +234,6 @@ class MojBroj extends Component {
         }
       });
     }
-
-    console.log(this.state.score.win);
-    console.log(this.state.score.loss);
     this.setState({ value })
   }
 
@@ -262,29 +244,31 @@ class MojBroj extends Component {
     value = '';
     let win = this.state.score.win;
     let loss = this.state.score.loss;
-    console.log(targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100)
     this.setState({
 
       inputArr: [],
       targetNumber, target1a, target1b, target1c, target1d, target101520,
-       target255075100, value, displayValue, numberState:true, operandState:true, dupliNumMesasage: '',
-       dupliNumInRowMesasage: '',
-       operandMessage:'',
-       showValue:'value--hide',
-       disabledButt1:false,
-       disabledButt2:false,
-       disabledButt3:false,
-       disabledButt4:false,
-       disabledButt5:false,
-       disabledButt6:false,
-       disabledButtClass1:'button-detaljnije',
-       disabledButtClass2:'button-detaljnije',
-       disabledButtClass3:'button-detaljnije',
-       disabledButtClass4:'button-detaljnije',
-       disabledButtClass5:'button-detaljnije',
-       disabledButtClass6:'button-detaljnije',
-      
-       score: {
+      target255075100, value, displayValue, numberState: true, operandState: true, dupliNumMesasage: '',
+      dupliNumInRowMesasage: '',
+      operandMessage: '',
+      showValue: 'value--hide',
+      targetArr:[],
+      targetArrRemove:[],
+      disabledButt1: false,
+      disabledButt2: false,
+      disabledButt3: false,
+      disabledButt4: false,
+      disabledButt5: false,
+      disabledButt6: false,
+      ButtClass1: 'button-enabled',
+      ButtClass2: 'button-enabled',
+      ButtClass3: 'button-enabled',
+      ButtClass4: 'button-enabled',
+      ButtClass5: 'button-enabled',
+      ButtClass6: 'button-enabled',
+      buttonIndexArr:[],
+
+      score: {
         win: win,
         loss: loss,
         message: ''
@@ -292,75 +276,100 @@ class MojBroj extends Component {
     });
   }
 
-  DeleteInputs=()=>{
-          let buttonIndexArr=this.state.buttonIndexArr.slice();
-          let buttonIndex=buttonIndexArr.slice(0,buttonIndexArr.length-1);
-             console.log(buttonIndex+' button index');
+  DeleteInputs = () => {
+    let { targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100,numberState, value, displayValue,targetArr } = this.state;
+    targetArr=targetArr.slice();
+    let targetArrLength = targetArr.length;
+     if(numberState===false){
 
-          let { displayValue}=this.state;
-          let displayValueLength = displayValue.length;
-          displayValue=  displayValue.slice(0,displayValueLength-1);
+      let buttonLast = targetArr.slice(targetArrLength - 1, targetArrLength);
+      targetArr=targetArr.slice(0,targetArrLength-1);
+      this.setState({targetArr});
+     
+      console.log(buttonLast+' BUTTONLAST')
+      console.log(targetArr + ' TARGET ARR');
+  
+      buttonLast == target1a ? this.setState({ disabledButt1: false }) : null;
+      buttonLast == target1b ? this.setState({ disabledButt2: false }) : null;
+      buttonLast == target1c ? this.setState({ disabledButt3: false }) : null;
+      buttonLast == target1d ? this.setState({ disabledButt4: false }) : null;
+      buttonLast == target101520 ? this.setState({ disabledButt5: false }) : null;
+      buttonLast == target255075100 ? this.setState({ disabledButt6: false }) : null;
+  
+      buttonLast == target1a ? this.setState({ ButtClass1: 'button-enabled' }) : null;
+      buttonLast == target1b ? this.setState({ ButtClass2: 'button-enabled' }) : null;
+      buttonLast == target1c ? this.setState({ ButtClass3: 'button-enabled' }) : null;
+      buttonLast == target1d ? this.setState({ ButtClass4: 'button-enabled' }) : null;
+      buttonLast == target101520 ? this.setState({ ButtClass5: 'button-enabled' }) : null;
+      buttonLast == target255075100 ? this.setState({ ButtClass6: 'button-enabled' }) : null;
+      
+      let displayValueLength = displayValue.length;
+      displayValue = displayValue.slice(0, displayValueLength - 1);
+  
+      this.setState({
+        displayValue: displayValue,
+        buttonLast: buttonLast,
+        operandMessage: '',
+        dupliNumInRowMesasage: '',
+       
+      });
+  
+      console.log(displayValue + ' displayvalue');
 
-        this.setState({
-             displayValue: displayValue,
-            //  disabledButt1:false,
-            //  disabledButtClass1:'button-detaljnije',
-        });
-        console.log(displayValue+' displayvalue')
+     } 
+  
+
   }
+
 
   render() {
     let { targetNumber, target1a, target1b, target1c, target1d, target101520, target255075100 } = this.state;
     return (
-      <div>
+      <div className='main'>
         <p>f</p>
         <p>f</p>
         <p>f</p>
-        <Score win={this.state.score.win} loss={this.state.score.loss} message={this.state.score.message} />
-        <div><per>{JSON.stringify(this.state,null,2)}</per></div>
+        <div><per>{JSON.stringify(this.state, null, 2)}</per></div>
+        <Score generate={this.generateTarget} win={this.state.score.win} loss={this.state.score.loss} message={this.state.score.message} />
 
-        <button className='button-detaljnije' onClick={this.generateTarget}>IZABERI BROJ</button>
-        <button className='button-detaljnije' onClick={this.generateSolution}>POGLEDAJ  RESENJE</button>
-        <h2>PRONADJI BROJ-- {this.state.targetNumber}</h2>
-        <h3>UZ POMOC BROJEVA : [{this.state.target1a}] [{this.state.target1b}]
-          [{this.state.target1c}] [{this.state.target1d}] --- [{this.state.target101520}] --- [{this.state.target255075100}]
-          </h3>
+        <div>
+          <button className='button-target'>TRAZENI BROJ-- {this.state.targetNumber}</button>
+        </div>
 
-        <button className={this.state.disabledButtClass1} disabled={this.state.disabledButt1} onClick={() => this.PerformNumberInput(target1a,1,false)}>{target1a}</button>
-        <button className={this.state.disabledButtClass2} disabled={this.state.disabledButt2} onClick={() => this.PerformNumberInput(target1b,2,false)}>{target1b}</button>
-        <button className={this.state.disabledButtClass3} disabled={this.state.disabledButt3} onClick={() => this.PerformNumberInput(target1c,3,false)}>{target1c}</button>
-        <button className={this.state.disabledButtClass4} disabled={this.state.disabledButt4} onClick={() => this.PerformNumberInput(target1d,4,false)}>{target1d}</button>
-        <button className={this.state.disabledButtClass5} disabled={this.state.disabledButt5} onClick={() => this.PerformNumberInput(target101520,5,false)}>{target101520}</button>
-        <button className={this.state.disabledButtClass6} disabled={this.state.disabledButt6} onClick={() => this.PerformNumberInput(target255075100,6,false)}>{target255075100}</button>
-        <br></br>
-        <button className='button-detaljnije' value={'+'} onClick={() => this.PerformOperandInput('+',7,false)}>+</button>
-        <button className='button-detaljnije' value={'-'} onClick={() => this.PerformOperandInput('-',8,false)}>-</button>
-        <button className='button-detaljnije' value={'*'} onClick={() => this.PerformOperandInput('*',9,false)}>*</button>
-        <button className='button-detaljnije' value={'/'} onClick={() => this.PerformOperandInput('/',10,false)}>/</button>
-        <button className='button-detaljnije' value={'('} onClick={() => this.PerformOperandInput('(',11,false)}>(</button>
-        <button className='button-detaljnije' value={')'} onClick={() => this.PerformOperandInput(')',12,false)}>)</button>
+        <div className='buttonGroup'>
+          <div>
+            <h3>UZ POMOC BROJEVA </h3>
+            <button className={this.state.ButtClass1}  disabled={this.state.disabledButt1} onClick={()=>this.BackSpace(target1a)} onClick={() => this.PerformNumberInput(target1a, 1)}>{target1a}</button>
+            <button className={this.state.ButtClass2} disabled={this.state.disabledButt2}  onClick={() => this.PerformNumberInput(target1b, 2)}>{target1b}</button>
+            <button className={this.state.ButtClass3} disabled={this.state.disabledButt3}  onClick={() => this.PerformNumberInput(target1c, 3)}>{target1c}</button>
+            <button className={this.state.ButtClass4} disabled={this.state.disabledButt4}  onClick={() => this.PerformNumberInput(target1d, 4)}>{target1d}</button>
+            <button className={this.state.ButtClass5} disabled={this.state.disabledButt5}  onClick={() => this.PerformNumberInput(target101520, 5)}>{target101520}</button>
+            <button className={this.state.ButtClass6} disabled={this.state.disabledButt6}  onClick={() => this.PerformNumberInput(target255075100, 6)}>{target255075100}</button>
+            <button className={this.state.InvalidNumberClass} >{this.state.invalidNumber}</button>
+          </div>
+          <div>
+            <button className='button-detaljnije' value={'+'} onClick={() => this.PerformOperandInput('+', '+', false)}>+</button>
+            <button className='button-detaljnije' value={'-'} onClick={() => this.PerformOperandInput('-', '-', false)}>-</button>
+            <button className='button-detaljnije' value={'*'} onClick={() => this.PerformOperandInput('*', '*', false)}>*</button>
+            <button className='button-detaljnije' value={'/'} onClick={() => this.PerformOperandInput('/', '/', false)}>/</button>
+            <button className='button-detaljnije' value={'('} onClick={() => this.PerformOperandInput('(', '(', false)}>(</button>
+            <button className='button-detaljnije' value={')'} onClick={() => this.PerformOperandInput(')', ')', false)}>)</button>
+          </div>
+        </div>
         <div>
 
-          <h2>PLAYERS INPUT: {this.state.dupliNumMesasage} {this.state.dupliNumInRowMesasage} {this.state.operandMessage}</h2> 
+          <h2>PLAYERS INPUT: {this.state.dupliNumMesasage} {this.state.dupliNumInRowMesasage} {this.state.operandMessage}</h2>
           <button className='button-detaljnije' onClick={this.DeleteInputs}>OBRISI</button>
-
-          <h2>{this.state.displayValue} -DISPLAY VALUE</h2>
-          <h2 className={this.state.showValue}>VASE RESENJE JE: {this.state.value}-VALUE</h2>
+          <div className='playersIput'>{this.state.displayValue}  =
+          <p className={this.state.showValue}> {this.state.value}</p>
+          </div>
           <br></br>
           <button className='button-detaljnije' onClick={this.Calculate}>IZRACUNAJ</button>
           <button className='button-detaljnije' onClick={this.ClearAll}>RESETUJ SVE</button>
-         
+          <button className='button-target' onClick={this.generateSolution}>POGLEDAJ RESENJE</button>
+
         </div>
-        {/* <div className='resenje'><h3>resenje je: --{this.state.solutionQuick}-- {this.state.text}</h3>
-          <h3>{this.state.solutionFinal}</h3>
-          <h3>{this.state.solutionFinalOpis}</h3>
-          <p>{this.state.firstCalc}-firstCalc</p>
-          <p>{this.state.secondCalc}-secondCalc</p>
-        </div> */}
-
-
       </div>
-
     )
 
   }
