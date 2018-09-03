@@ -11,10 +11,17 @@
     display: none;
   }
 
+  #time{
+      font-size: 50px;
+      font-weight: 500;
+      background-color: darkorange;
+      width: 250px;
+      padding: 7px 40px;
+  }
 
-  .button-detaljnije{
+  .button-functional{
     color: white;
-    background-color: rgb(5, 100, 5);
+    background-color: darkgreen;
     border: 1px solid white;
     border-radius: 0%;
     font-weight: 500;
@@ -24,6 +31,12 @@
     padding: 5px 35px;
     margin-top: 5px;
    
+}
+
+.button-functional:hover {
+    background-color: rgb(1, 143, 1);
+    color: white;
+    transform: scale(1.05);
 }
 
 .button-win{
@@ -68,11 +81,8 @@
     margin-top: 10px; 
 }
 
-.button-detaljnije:hover {
-    background-color: rgba(5, 100, 5, 0.493);
-    color: white;
-    transform: scale(1.1);
-}
+
+
 
 
 .button-disabled {
@@ -109,6 +119,8 @@
         animation-fill-mode: forwards;
         }
 
+        
+
     .buttonGroup{
        
         font-weight: 500;
@@ -141,6 +153,32 @@
         margin: 5px;
     }
 
+    .button-operand{
+        color: white;
+        background-color: darkorange;
+        border: 1px solid white;
+        border-radius: 0%;
+        font-weight: 500;
+        transition: all 0.5s;
+        width: 200;
+        height: 50px;
+        padding: 5px 35px;
+        margin-top: 5px;
+       
+    }
+
+    .button-operand:hover {
+        background-color: rgb(190, 106, 3);
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .button-operand:active {
+        background-color: rgba(5, 100, 5, 0.493);
+        color: white;
+        transform: scale(1.1);
+    }
+
     .playersIput{
         background-color: rgb(106, 199, 106);
         border: 1px solid rgb(245, 8, 8);
@@ -163,6 +201,13 @@
         width: 270px;
         border: 1px solid red;
 
+    }
+
+    .uputstvo{
+        background-color: bisque;
+        width: 30%;
+        padding: 10px;
+        font-size: 16px;
     }
 
  
