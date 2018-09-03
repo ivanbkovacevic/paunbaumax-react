@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Score from './Score';
+import ButtonTest from './ButtonTest';
 import './MojBroj.css';
 
 class MojBroj extends Component {
@@ -12,7 +13,10 @@ class MojBroj extends Component {
     target4: 4,
     target5: 15,
     target6: 100,
+    targetInitialArr:[],
     targetArr: [],
+    testIndex:true,
+    dugmad:[],
     buttonIndexArr: [],
     operandArr: [],
     inputsAllArr: [],
@@ -41,8 +45,6 @@ class MojBroj extends Component {
     ButtClass5: 'button-enabled',
     ButtClass6: 'button-enabled',
 
-
-
     displayValue: '',
 
     numberState: true,
@@ -63,6 +65,7 @@ class MojBroj extends Component {
   }
 
   generateTargetsingl = () => {
+   
     let min = 1;
     let max = 9;
     let min1 = 100;
@@ -71,30 +74,40 @@ class MojBroj extends Component {
     let target2 = Math.floor(Math.random() * (max - min + 1)) + min;
     let target3 = Math.floor(Math.random() * (max - min + 1)) + min;
     let target4 = Math.floor(Math.random() * (max - min + 1)) + min;
-    let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
-    this.setState({ targetNumber, target1, target2, target3, target4 })
-
-  }
-
-
-  generateTarget15 = () => {
     let target5 = [10, 15, 20, 10, 15, 20, 10, 15, 20, 10];
     let index = Math.floor(Math.random() * 10);
     target5 = target5[index];
-    this.setState({ target5 })
-  }
-
-  generateTarget100 = () => {
     let target6 = [25, 50, 75, 100, 25, 50, 75, 100, 25, 50];
     let index1 = Math.floor(Math.random() * 10);
     target6 = target6[index1];
-    this.setState({ target6 })
+    let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+    
+    let {targetInitialArr}=this.state;
+        targetInitialArr=targetInitialArr.slice();
+        targetInitialArr.push(target1, target2, target3, target4,target5,target6)
+    this.setState({ targetNumber, target1, target2, target3, target4,target5,target6,targetInitialArr })
+
   }
+
+
+  // generateTarget15 = () => {
+  //   let target5 = [10, 15, 20, 10, 15, 20, 10, 15, 20, 10];
+  //   let index = Math.floor(Math.random() * 10);
+  //   target5 = target5[index];
+  //   this.setState({ target5 })
+  // }
+
+  // generateTarget100 = () => {
+  //   let target6 = [25, 50, 75, 100, 25, 50, 75, 100, 25, 50];
+  //   let index1 = Math.floor(Math.random() * 10);
+  //   target6 = target6[index1];
+  //   this.setState({ target6 })
+  // }
   ///////////////////////// GLAVNA ///////////////////////////////
   generateTarget = () => {
     this.generateTargetsingl();
-    this.generateTarget15();
-    this.generateTarget100();
+    // this.generateTarget15();
+    // this.generateTarget100();
     this.TimerStart();
   }
 
@@ -131,8 +144,8 @@ class MojBroj extends Component {
   ///////////////////////////////////////////////////
 
   PerformNumberInput = (number, bIndex) => {
-    let { targetNumber, target1, target2, target3, target4, target5, target6,
-      value, displayValue, numberState, dupliNumMesasage, targetArr, inputsAllArr
+    let {  target1, target2, target3, target4, target5, target6,
+       displayValue, numberState,  targetArr, inputsAllArr
       , buttonIndexArr } = this.state;
 
     if (numberState === true) {
@@ -299,7 +312,6 @@ class MojBroj extends Component {
       let inputsAllLast = inputsAllArr.slice(inputsAllArrLength - 1, inputsAllArrLength);//poslednji Allinput
       inputsAllArr = inputsAllArr.slice(0, inputsAllArrLength - 1);
 
-
       displayValue = inputsAllArr.toString();
       displayValue = displayValue.replace(/,/g, '');
 
@@ -331,15 +343,26 @@ class MojBroj extends Component {
     }
   }
 
+  Testiranje=(index)=>{
+   
+    this.setState({testIndex:1});
+  }
+
+
+
   render() {
-    let { targetNumber, target1, target2, target3, target4, target5, target6 } = this.state;
+    let { targetNumber, target1, target2, target3, target4, target5, target6, ButtClass1 } = this.state;
     return (
       <div className='main'>
         <p>f</p>
         <p>f</p>
         <p>f</p>
+        
         <div className='state' ><per>{JSON.stringify(this.state, null, 2)}</per></div>
         <Score generate={this.generateTarget} win={this.state.score.win} loss={this.state.score.loss} />
+
+        <button className={this.state.testIndex===1 ? 'button-enabled':'button-disabled' }
+         onClick={() => this.Testiranje(1)}>{target1}</button>
 
         <div>
           <h1 className='trazeniBroj'>TRAZENI BROJ</h1>
@@ -380,6 +403,9 @@ class MojBroj extends Component {
           <button className='button-functional' onClick={this.DeleteInputs}>OBRISI POSLEDNJE</button>
           <button className='button-functional' onClick={this.ClearAll}>RESETUJ SVE</button>
           <button className='button-functional' onClick={this.generateSolution}>POGLEDAJ RESENJE</button>
+          <ButtonTest classa={this.state.ButtClass1} target={this.state.targetInitialArr}/>
+
+          
 
         </div>
       </div>
